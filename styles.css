@@ -110,6 +110,14 @@ input {
 .chart-section { margin-bottom: 24px; }
 .chart-area { position: relative; min-height: 320px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.92)); border: 1px solid var(--border); }
 #trendChart { width: 100%; height: 320px; display: block; }
+.chart-dot-hitbox {
+  cursor: pointer;
+  pointer-events: all;
+}
+.chart-dot,
+.chart-dot-core {
+  pointer-events: none;
+}
 .empty-chart { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
 .chart-tooltip {
   position: absolute;

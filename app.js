@@ -311,6 +311,9 @@ function renderChart() {
     const x = xFor(index);
     const y = yFor(Number(point.value));
     return `<g class="chart-dot-group" data-index="${index}">
+      <circle class="chart-dot-hitbox" cx="${x}" cy="${y}" r="12" fill="transparent">
+        <title>${point.date}: ${formatMetricValue(point.value, row.metricLabel)}</title>
+      </circle>
       <circle class="chart-dot" cx="${x}" cy="${y}" r="6" fill="#b44d12" fill-opacity="0.18" />
       <circle class="chart-dot-core" cx="${x}" cy="${y}" r="4" fill="#b44d12" />
     </g>`;
@@ -330,17 +333,23 @@ function renderChart() {
   const directionText = direction > 0 ? 'rising' : direction < 0 ? 'falling' : 'flat';
   els.chartFootnote.textContent = `${row.title} ${footnoteMetric} is ${directionText} across ${points.length} snapshots.`;
 
-  els.chartSvg.querySelectorAll('.chart-dot-group').forEach((dotEl) => {
-    dotEl.addEventListener('mouseenter', (event) => {
-      const index = Number(dotEl.dataset.index);
+  els.chartSvg.querySelectorAll('.chart-dot-hitbox').forEach((dotEl) => {
+    const index = Number(dotEl.parentElement?.dataset.index);
+    if (!Number.isFinite(index)) {
+      return;
+    }
+    dotEl.addEventListener('pointerenter', (event) => {
       showChartTooltip(event, points[index], row.metricLabel);
     });
-    dotEl.addEventListener('mousemove', (event) => {
-      const index = Number(dotEl.dataset.index);
+    dotEl.addEventListener('pointermove', (event) => {
       showChartTooltip(event, points[index], row.metricLabel);
     });
-    dotEl.addEventListener('mouseleave', hideChartTooltip);
+    dotEl.addEventListener('pointerleave', hideChartTooltip);
+    dotEl.addEventListener('click', (event) => {
+      showChartTooltip(event, points[index], row.metricLabel);
+    });
   });
+  els.chartSvg.addEventListener('mouseleave', hideChartTooltip, { once: true });
 }
 
 function updateSortHeaders() {
