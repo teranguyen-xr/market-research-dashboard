@@ -92,11 +92,6 @@ function renderCreatorMomentum() {
     const gameCell = row.gameUrl
       ? `<a class="game-link" href="${row.gameUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.game)}</a>`
       : `<span class="${row.game === 'No tracked game yet' ? 'muted' : ''}">${escapeHtml(row.game)}</span>`;
-    const statusCell = row.status === 'NEW'
-      ? '<span class="badge-new">NEW</span>'
-      : row.status === 'Watch'
-        ? '<span class="status-watch">Watch</span>'
-        : '<span class="status-muted">Repeat</span>' ;
     return `
     <tr>
       <td><a class="game-link" href="${row.creatorUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.creator)}</a></td>
@@ -107,7 +102,6 @@ function renderCreatorMomentum() {
       <td>${escapeHtml(row.subscribers)}</td>
       <td>${escapeHtml(row.views)}</td>
       <td>${escapeHtml(row.posted)}</td>
-      <td>${statusCell}</td>
     </tr>
   `;
   }).join('');
@@ -124,7 +118,6 @@ function renderCreatorMomentum() {
       <td>${escapeHtml(row.creator)}</td>
       <td>${escapeHtml(row.views)}</td>
       <td>${escapeHtml(row.posted)}</td>
-      <td>${row.status === 'NEW' ? '<span class="badge-new">NEW</span>' : '<span class="status-muted">Repeat</span>'}</td>
     </tr>
   `;
   }).join('');
