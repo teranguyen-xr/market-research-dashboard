@@ -2,24 +2,29 @@ let state = {
   rows: [],
   filteredRows: [],
   histories: {},
-  sortKey: 'platformLabel',
+  sortKey: 'rank',
   sortDir: 'asc',
-  chartMode: 'rank',
   selectedKey: null,
 };
+
+const PLATFORM_ORDER = ['statbot', 'roblox', 'steam', 'twitch'];
 
 const els = {
   latestSnapshot: document.getElementById('latestSnapshot'),
   generatedAt: document.getElementById('generatedAt'),
   summaryCards: document.getElementById('summaryCards'),
   searchInput: document.getElementById('searchInput'),
-  platformFilter: document.getElementById('platformFilter'),
-  tableBody: document.getElementById('tableBody'),
+  tableBodies: {
+    statbot: document.getElementById('tableBody-statbot'),
+    roblox: document.getElementById('tableBody-roblox'),
+    steam: document.getElementById('tableBody-steam'),
+    twitch: document.getElementById('tableBody-twitch'),
+  },
   chartTitle: document.getElementById('chartTitle'),
   chartSvg: document.getElementById('trendChart'),
   chartEmpty: document.getElementById('chartEmpty'),
   chartFootnote: document.getElementById('chartFootnote'),
-  toggles: Array.from(document.querySelectorAll('.toggle')),
+  sortHeaders: Array.from(document.querySelectorAll('th[data-sort]')),
 };
 
 function formatDate(value) {
@@ -54,16 +59,14 @@ function buildCards(cards) {
   els.summaryCards.querySelectorAll('.summary-card').forEach((card) => {
     card.addEventListener('click', () => {
       const platform = card.dataset.focusPlatform;
-      els.platformFilter.value = platform;
-      applyFilters();
+      const nextRow = sortRows(state.filteredRows).find((row) => row.platform === platform);
+      if (!nextRow) return;
+      state.selectedKey = nextRow.key;
+      renderTables();
+      renderChart();
+      document.querySelector(`[data-row-key="${CSS.escape(nextRow.key)}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
-}
-
-function buildPlatformOptions(sources) {
-  els.platformFilter.innerHTML = '<option value="all">All</option>' + sources.map((source) => (
-    `<option value="${source.id}">${escapeHtml(source.label)}</option>`
-  )).join('');
 }
 
 function compareValues(a, b) {
@@ -78,21 +81,32 @@ function sortRows(rows) {
   const { sortKey, sortDir } = state;
   return [...rows].sort((left, right) => {
     const result = compareValues(left[sortKey], right[sortKey]);
-    return sortDir === 'asc' ? result : -result;
+    if (result !== 0) return sortDir === 'asc' ? result : -result;
+    return compareValues(left.rank, right.rank);
   });
 }
 
-function renderTable() {
-  const rows = sortRows(state.filteredRows);
-  els.tableBody.innerHTML = rows.map((row) => {
+function renderPlatformTable(platform, rows) {
+  const body = els.tableBodies[platform];
+  if (!body) return;
+
+  if (rows.length === 0) {
+    body.innerHTML = `
+      <tr>
+        <td colspan="4" class="empty-table">No matching games for this source.</td>
+      </tr>
+    `;
+    return;
+  }
+
+  body.innerHTML = rows.map((row) => {
     const deltaClass = row.deltaValue == null ? 'muted' : row.deltaValue >= 0 ? 'delta-positive' : 'delta-negative';
     return `
-      <tr data-key="${row.key}" class="${state.selectedKey === row.key ? 'is-selected' : ''}">
+      <tr data-row-key="${row.key}" class="${state.selectedKey === row.key ? 'is-selected' : ''}">
         <td>
           <a class="game-link" href="${row.url || '#'}" target="_blank" rel="noreferrer">${escapeHtml(row.title)}</a>
           ${row.isNew ? '<span class="badge-new">NEW</span>' : ''}
         </td>
-        <td>${escapeHtml(row.platformLabel)}</td>
         <td>#${row.rank}</td>
         <td>${escapeHtml(row.currentMetric)}</td>
         <td class="${deltaClass}">${escapeHtml(row.delta)}</td>
@@ -100,33 +114,41 @@ function renderTable() {
     `;
   }).join('');
 
-  els.tableBody.querySelectorAll('tr').forEach((row) => {
-    row.addEventListener('click', () => {
-      state.selectedKey = row.dataset.key;
-      renderTable();
+  body.querySelectorAll('tr[data-row-key]').forEach((rowEl) => {
+    rowEl.addEventListener('click', () => {
+      state.selectedKey = rowEl.dataset.rowKey;
+      renderTables();
       renderChart();
     });
   });
+}
 
-  if (!state.selectedKey && rows[0]) {
-    state.selectedKey = rows[0].key;
-    renderTable();
+function renderTables() {
+  const sorted = sortRows(state.filteredRows);
+  PLATFORM_ORDER.forEach((platform) => {
+    const rows = sorted.filter((row) => row.platform === platform);
+    renderPlatformTable(platform, rows);
+  });
+
+  if (!state.selectedKey && sorted[0]) {
+    state.selectedKey = sorted[0].key;
+    renderTables();
     renderChart();
   }
 }
 
 function applyFilters() {
   const query = els.searchInput.value.trim().toLowerCase();
-  const platform = els.platformFilter.value;
   state.filteredRows = state.rows.filter((row) => {
-    const matchesQuery = !query || [row.title, row.platformLabel].join(' ').toLowerCase().includes(query);
-    const matchesPlatform = platform === 'all' || row.platform === platform;
-    return matchesQuery && matchesPlatform;
+    return !query || [row.title, row.platformLabel].join(' ').toLowerCase().includes(query);
   });
+
   if (!state.filteredRows.find((row) => row.key === state.selectedKey)) {
     state.selectedKey = state.filteredRows[0]?.key || null;
   }
-  renderTable();
+
+  renderTables();
+  renderChart();
 }
 
 function renderChart() {
@@ -137,6 +159,7 @@ function renderChart() {
   if (!row || history.length === 0) {
     els.chartSvg.innerHTML = '';
     els.chartEmpty.style.display = 'grid';
+    els.chartEmpty.textContent = 'Select a row to see movement over time.';
     els.chartFootnote.textContent = '';
     return;
   }
@@ -144,16 +167,14 @@ function renderChart() {
   const points = history
     .map((item) => ({
       date: item.date,
-      value: state.chartMode === 'metric' ? item.metric : item.rank,
+      value: item.metric,
     }))
     .filter((item) => item.value != null);
 
   if (points.length < 2) {
     els.chartSvg.innerHTML = '';
     els.chartEmpty.style.display = 'grid';
-    els.chartEmpty.textContent = state.chartMode === 'metric'
-      ? 'Metric history is not available for this source yet.'
-      : 'Not enough history points yet.';
+    els.chartEmpty.textContent = 'Metric history is not available for this source yet.';
     els.chartFootnote.textContent = '';
     return;
   }
@@ -169,14 +190,10 @@ function renderChart() {
 
   const xFor = (index) => padding.left + (index * (width - padding.left - padding.right)) / (points.length - 1);
   const yFor = (value) => {
-    const normalized = state.chartMode === 'rank'
-      ? (value - min) / range
-      : (value - min) / range;
-    const y = height - padding.bottom - normalized * (height - padding.top - padding.bottom);
-    return state.chartMode === 'rank' ? y : y;
+    const normalized = (value - min) / range;
+    return height - padding.bottom - normalized * (height - padding.top - padding.bottom);
   };
 
-  const rankMode = state.chartMode === 'rank';
   const linePoints = points.map((point, index) => `${xFor(index)},${yFor(Number(point.value))}`).join(' ');
 
   const grid = Array.from({ length: 4 }, (_, idx) => {
@@ -194,7 +211,7 @@ function renderChart() {
     const y = yFor(Number(point.value));
     return `<g>
       <circle cx="${x}" cy="${y}" r="4" fill="#b44d12" />
-      <title>${point.date}: ${rankMode ? '#' + point.value : point.value}</title>
+      <title>${point.date}: ${point.value}</title>
     </g>`;
   }).join('');
 
@@ -208,17 +225,22 @@ function renderChart() {
   const latest = points[points.length - 1];
   const oldest = points[0];
   const direction = Number(latest.value) - Number(oldest.value);
-  const footnoteMetric = rankMode ? 'rank history' : `${row.metricLabel} history`;
-  const directionText = rankMode
-    ? (direction < 0 ? 'improving' : direction > 0 ? 'slipping' : 'flat')
-    : (direction > 0 ? 'rising' : direction < 0 ? 'falling' : 'flat');
+  const footnoteMetric = `${row.metricLabel} history`;
+  const directionText = direction > 0 ? 'rising' : direction < 0 ? 'falling' : 'flat';
   els.chartFootnote.textContent = `${row.title} ${footnoteMetric} is ${directionText} across ${points.length} snapshots.`;
+}
+
+function updateSortHeaders() {
+  els.sortHeaders.forEach((header) => {
+    const isActive = header.dataset.sort === state.sortKey;
+    header.classList.toggle('is-active-sort', isActive);
+    header.dataset.sortDir = isActive ? state.sortDir : '';
+  });
 }
 
 function attachEvents() {
   els.searchInput.addEventListener('input', applyFilters);
-  els.platformFilter.addEventListener('change', applyFilters);
-  document.querySelectorAll('th[data-sort]').forEach((header) => {
+  els.sortHeaders.forEach((header) => {
     header.addEventListener('click', () => {
       const key = header.dataset.sort;
       if (state.sortKey === key) {
@@ -227,15 +249,8 @@ function attachEvents() {
         state.sortKey = key;
         state.sortDir = key === 'rank' ? 'asc' : 'desc';
       }
-      renderTable();
-    });
-  });
-  els.toggles.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-      els.toggles.forEach((button) => button.classList.remove('is-active'));
-      toggle.classList.add('is-active');
-      state.chartMode = toggle.dataset.chartMode;
-      renderChart();
+      updateSortHeaders();
+      renderTables();
     });
   });
 }
@@ -247,8 +262,8 @@ loadData().then((data) => {
   state.histories = data.histories;
   state.filteredRows = data.rows;
   buildCards(data.cards);
-  buildPlatformOptions(data.sources);
   attachEvents();
+  updateSortHeaders();
   applyFilters();
 }).catch((error) => {
   console.error(error);

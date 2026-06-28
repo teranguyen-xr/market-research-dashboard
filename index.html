@@ -44,25 +44,15 @@
             <span>Search</span>
             <input id="searchInput" type="search" placeholder="Search games, platforms, tags">
           </label>
-          <label class="filter-box">
-            <span>Platform</span>
-            <select id="platformFilter">
-              <option value="all">All</option>
-            </select>
-          </label>
         </div>
       </section>
 
-      <section class="dashboard-grid">
+      <section class="chart-section">
         <div class="panel chart-panel">
           <div class="panel-header">
             <div>
               <p class="eyebrow">Selected Game</p>
               <h3 id="chartTitle">Choose a game row</h3>
-            </div>
-            <div class="metric-toggle">
-              <button class="toggle is-active" data-chart-mode="rank">Rank</button>
-              <button class="toggle" data-chart-mode="metric">Metric</button>
             </div>
           </div>
           <div class="chart-area">
@@ -71,27 +61,100 @@
           </div>
           <div class="chart-footnote" id="chartFootnote"></div>
         </div>
+      </section>
 
-        <div class="panel table-panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Latest Snapshot Table</p>
-              <h3>Sortable Game Table</h3>
+      <section class="tables-section">
+        <div class="section-header compact">
+          <h2>Latest Snapshot Tables</h2>
+          <p>Each table is independently scannable while staying sortable across the same fields.</p>
+        </div>
+        <div class="tables-grid">
+          <div class="panel source-table-panel">
+            <div class="panel-header compact-panel-header">
+              <div>
+                <p class="eyebrow">Player Behavior</p>
+                <h3>AC Discord</h3>
+              </div>
+            </div>
+            <div class="table-wrap compact-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-sort="title">Game Title</th>
+                    <th data-sort="rank">Rank</th>
+                    <th data-sort="currentMetricValue">Current Metric</th>
+                    <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody-statbot"></tbody>
+              </table>
             </div>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th data-sort="title">Game Title</th>
-                  <th data-sort="platformLabel">Platform</th>
-                  <th data-sort="rank">Rank</th>
-                  <th data-sort="currentMetricValue">Current Metric</th>
-                  <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody"></tbody>
-            </table>
+
+          <div class="panel source-table-panel">
+            <div class="panel-header compact-panel-header">
+              <div>
+                <p class="eyebrow">Storefront Demand</p>
+                <h3>Roblox</h3>
+              </div>
+            </div>
+            <div class="table-wrap compact-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-sort="title">Game Title</th>
+                    <th data-sort="rank">Rank</th>
+                    <th data-sort="currentMetricValue">Current Metric</th>
+                    <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody-roblox"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel source-table-panel">
+            <div class="panel-header compact-panel-header">
+              <div>
+                <p class="eyebrow">Storefront Demand</p>
+                <h3>Steam</h3>
+              </div>
+            </div>
+            <div class="table-wrap compact-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-sort="title">Game Title</th>
+                    <th data-sort="rank">Rank</th>
+                    <th data-sort="currentMetricValue">Current Metric</th>
+                    <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody-steam"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel source-table-panel">
+            <div class="panel-header compact-panel-header">
+              <div>
+                <p class="eyebrow">Creator Attention</p>
+                <h3>Twitch</h3>
+              </div>
+            </div>
+            <div class="table-wrap compact-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-sort="title">Game Title</th>
+                    <th data-sort="rank">Rank</th>
+                    <th data-sort="currentMetricValue">Current Metric</th>
+                    <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody-twitch"></tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
