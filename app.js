@@ -9,10 +9,171 @@ let state = {
 
 const PLATFORM_ORDER = ['statbot', 'roblox', 'steam', 'twitch'];
 
+const CREATOR_MOMENTUM = {
+  cards: [
+    {
+      title: 'Most Covered New Game',
+      primary: 'ARC Raiders',
+      meta: 'Steam co-op survival',
+      detail: '4 tracked creators this week',
+    },
+    {
+      title: 'Biggest Breakout Video',
+      primary: 'caseoh_ • Dead Rails',
+      meta: 'YouTube',
+      detail: '2.8M views • 2 days ago',
+    },
+    {
+      title: 'Most Repeated Theme',
+      primary: 'Co-op survival',
+      meta: 'Recurring across creators',
+      detail: '11 videos this week',
+    },
+  ],
+  coverage: [
+    {
+      creator: 'caseoh_',
+      creatorUrl: 'https://www.youtube.com/@caseoh_',
+      segment: 'Steam co-op survival',
+      game: 'Dead Rails',
+      gameUrl: 'https://www.roblox.com/games/116495829188952/Dead-Rails-Alpha',
+      platform: 'YouTube',
+      video: 'dead rails is absolute chaos',
+      videoUrl: 'https://www.youtube.com/@caseoh_',
+      subscribers: '10M+',
+      views: '2.8M',
+      posted: '2 days ago',
+      status: 'NEW',
+    },
+    {
+      creator: 'Markiplier',
+      creatorUrl: 'https://www.youtube.com/@markiplier',
+      segment: 'Steam co-op survival',
+      game: 'R.E.P.O.',
+      gameUrl: 'https://store.steampowered.com/app/3241660/REPO/',
+      platform: 'YouTube',
+      video: 'we should not be trusted with this',
+      videoUrl: 'https://www.youtube.com/@markiplier',
+      subscribers: '38.6M',
+      views: '1.9M',
+      posted: '3 days ago',
+      status: 'NEW',
+    },
+    {
+      creator: 'Flamingo',
+      creatorUrl: 'https://www.youtube.com/@Flamingo',
+      segment: 'Roblox discovery',
+      game: 'Grow a Garden',
+      gameUrl: 'https://www.roblox.com/games/126884695634066/Grow-a-Garden',
+      platform: 'YouTube',
+      video: 'this roblox game is everywhere',
+      videoUrl: 'https://www.youtube.com/@Flamingo',
+      subscribers: '13.6M',
+      views: '1.6M',
+      posted: '1 day ago',
+      status: 'NEW',
+    },
+    {
+      creator: 'KreekCraft',
+      creatorUrl: 'https://www.youtube.com/@KreekCraft',
+      segment: 'Roblox discovery',
+      game: 'Dead Rails',
+      gameUrl: 'https://www.roblox.com/games/116495829188952/Dead-Rails-Alpha',
+      platform: 'YouTube',
+      video: 'the biggest roblox survival game',
+      videoUrl: 'https://www.youtube.com/@KreekCraft',
+      subscribers: '11.2M',
+      views: '1.2M',
+      posted: '2 days ago',
+      status: 'NEW',
+    },
+    {
+      creator: 'SMii7Y',
+      creatorUrl: 'https://www.youtube.com/@SMii7Y',
+      segment: 'Steam friendslop / party-chaos',
+      game: 'PEAK',
+      gameUrl: 'https://store.steampowered.com/app/3527290/PEAK/',
+      platform: 'YouTube',
+      video: 'our teamwork got worse somehow',
+      videoUrl: 'https://www.youtube.com/@SMii7Y',
+      subscribers: '11M+',
+      views: '1.1M',
+      posted: '4 days ago',
+      status: 'Repeat',
+    },
+    {
+      creator: 'VanossGaming',
+      creatorUrl: 'https://www.youtube.com/@VanossGaming',
+      segment: 'Steam friendslop / party-chaos',
+      game: 'R.E.P.O.',
+      gameUrl: 'https://store.steampowered.com/app/3241660/REPO/',
+      platform: 'YouTube',
+      video: 'nothing about this run was smart',
+      videoUrl: 'https://www.youtube.com/@VanossGaming',
+      subscribers: '26.0M',
+      views: '980K',
+      posted: '5 days ago',
+      status: 'Repeat',
+    },
+  ],
+  trends: [
+    {
+      bucket: '#friendslop',
+      game: 'R.E.P.O.',
+      caption: 'friends trapped in the dumbest run',
+      url: 'https://www.tiktok.com/tag/friendslop',
+      creator: '@chaosclips',
+      views: '1.4M',
+      posted: '1 day ago',
+      status: 'NEW',
+    },
+    {
+      bucket: '#friendslop',
+      game: 'PEAK',
+      caption: 'co-op climbing went exactly wrong',
+      url: 'https://www.tiktok.com/tag/friendslop',
+      creator: '@partyphysics',
+      views: '920K',
+      posted: '2 days ago',
+      status: 'NEW',
+    },
+    {
+      bucket: '#gaming',
+      game: 'Dead Rails',
+      caption: 'roblox survival is getting weird',
+      url: 'https://www.tiktok.com/tag/gaming',
+      creator: '@trendloot',
+      views: '1.8M',
+      posted: '2 days ago',
+      status: 'NEW',
+    },
+    {
+      bucket: '#gaming',
+      game: 'ARC Raiders',
+      caption: 'everyone is posting this extraction clip',
+      url: 'https://www.tiktok.com/tag/gaming',
+      creator: '@coopsignal',
+      views: '760K',
+      posted: '3 days ago',
+      status: 'Repeat',
+    },
+  ],
+  signals: [
+    'ARC Raiders • 4 creators',
+    'Dead Rails • 3 creators',
+    'R.E.P.O. • 3 creators',
+    'PEAK • 2 creators',
+  ],
+};
+
 const els = {
   latestSnapshot: document.getElementById('latestSnapshot'),
   generatedAt: document.getElementById('generatedAt'),
   summaryCards: document.getElementById('summaryCards'),
+  creatorMomentumCards: document.getElementById('creatorMomentumCards'),
+  creatorCoverageBody: document.getElementById('creatorCoverageBody'),
+  tiktokTrendBody: document.getElementById('tiktokTrendBody'),
+  creatorSignalChips: document.getElementById('creatorSignalChips'),
   searchInput: document.getElementById('searchInput'),
   tableBodies: {
     statbot: document.getElementById('tableBody-statbot'),
@@ -67,6 +228,47 @@ function buildCards(cards) {
       document.querySelector(`[data-row-key="${CSS.escape(nextRow.key)}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
+}
+
+function renderCreatorMomentum() {
+  els.creatorMomentumCards.innerHTML = CREATOR_MOMENTUM.cards.map((card) => `
+    <article class="creator-summary-card">
+      <div class="summary-title">${escapeHtml(card.title)}</div>
+      <h3 class="creator-summary-primary">${escapeHtml(card.primary)}</h3>
+      <div class="creator-summary-meta">${escapeHtml(card.meta)}</div>
+      <div class="creator-summary-detail">${escapeHtml(card.detail)}</div>
+    </article>
+  `).join('');
+
+  els.creatorCoverageBody.innerHTML = CREATOR_MOMENTUM.coverage.map((row) => `
+    <tr>
+      <td><a class="game-link" href="${row.creatorUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.creator)}</a></td>
+      <td><span class="segment-pill">${escapeHtml(row.segment)}</span></td>
+      <td><a class="game-link" href="${row.gameUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.game)}</a></td>
+      <td>${escapeHtml(row.platform)}</td>
+      <td><a class="subtle-link" href="${row.videoUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.video)}</a></td>
+      <td>${escapeHtml(row.subscribers)}</td>
+      <td>${escapeHtml(row.views)}</td>
+      <td>${escapeHtml(row.posted)}</td>
+      <td>${row.status === 'NEW' ? '<span class="badge-new">NEW</span>' : '<span class="status-muted">Repeat</span>'}</td>
+    </tr>
+  `).join('');
+
+  els.tiktokTrendBody.innerHTML = CREATOR_MOMENTUM.trends.map((row) => `
+    <tr>
+      <td><span class="trend-pill">${escapeHtml(row.bucket)}</span></td>
+      <td>${escapeHtml(row.game)}</td>
+      <td><a class="subtle-link" href="${row.url}" target="_blank" rel="noreferrer">${escapeHtml(row.caption)}</a></td>
+      <td>${escapeHtml(row.creator)}</td>
+      <td>${escapeHtml(row.views)}</td>
+      <td>${escapeHtml(row.posted)}</td>
+      <td>${row.status === 'NEW' ? '<span class="badge-new">NEW</span>' : '<span class="status-muted">Repeat</span>'}</td>
+    </tr>
+  `).join('');
+
+  els.creatorSignalChips.innerHTML = CREATOR_MOMENTUM.signals.map((signal) => `
+    <div class="signal-chip">${escapeHtml(signal)}</div>
+  `).join('');
 }
 
 function compareValues(a, b) {
@@ -262,6 +464,7 @@ loadData().then((data) => {
   state.histories = data.histories;
   state.filteredRows = data.rows;
   buildCards(data.cards);
+  renderCreatorMomentum();
   attachEvents();
   updateSortHeaders();
   applyFilters();
