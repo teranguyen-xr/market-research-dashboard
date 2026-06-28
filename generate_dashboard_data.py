@@ -186,7 +186,7 @@ def build_summary_cards(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             twitch_delta = 'No new Twitch game this week'
         cards.append({
             'id': 'twitch',
-            'title': 'New Game from Twitch Streamers',
+            'title': 'Streamed on Twitch',
             'game': twitch_entry['title'],
             'platformLabel': twitch_entry['platformLabel'],
             'currentMetric': twitch_entry['currentMetric'],
@@ -356,41 +356,85 @@ def save_snapshot(platform: str, entries: List[Dict[str, Any]], source_url: str)
     }
     target.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
     return target
-def build_game_catalog(rows: List[Dict[str, Any]], snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> List[Dict[str, str]]:
+def build_game_catalog(rows: List[Dict[str, Any]], snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> List[Dict[str, Any]]:
     blacklist = {'roblox', 'steam', 'twitch', 'ac discord', 'discord'}
-    catalog: Dict[str, Dict[str, str]] = {}
+    catalog: Dict[str, Dict[str, Any]] = {}
     preferred_platforms = {'steam', 'roblox'}
     for row in rows:
         name = row.get('title') or ''
+        platform = row.get('platform') or ''
         if not name or normalize_title(name) in blacklist:
             continue
         existing = catalog.get(name)
         url = row.get('url') or ''
         should_replace = existing is None
-        if existing is not None and not existing.get('url') and row.get('platform') in preferred_platforms:
+        if existing is not None and not existing.get('url') and platform in preferred_platforms:
             should_replace = True
-        if existing is not None and row.get('platform') in preferred_platforms and existing.get('url', '').startswith('https://twitchtracker.com'):
+        if existing is not None and platform in preferred_platforms and existing.get('url', '').startswith('https://twitchtracker.com'):
             should_replace = True
         if should_replace:
-            catalog[name] = {'title': name, 'url': url if row.get('platform') in preferred_platforms else existing.get('url', '') if existing else ''}
+            catalog[name] = {
+                'title': name,
+                'url': url if platform in preferred_platforms else existing.get('url', '') if existing else '',
+                'platform': platform if platform in preferred_platforms else existing.get('platform', '') if existing else '',
+            }
     for title, aliases in CUSTOM_GAME_ALIASES.items():
-        catalog[title] = {'title': title, 'url': CUSTOM_GAME_URLS.get(title, catalog.get(title, {}).get('url', ''))}
-    return [
-        {
+        existing = catalog.get(title, {})
+        catalog[title] = {
+            'title': title,
+            'url': CUSTOM_GAME_URLS.get(title, existing.get('url', '')),
+            'platform': existing.get('platform', 'steam' if 'steam' in CUSTOM_GAME_URLS.get(title, '') else 'roblox' if 'roblox' in CUSTOM_GAME_URLS.get(title, '') else ''),
+        }
+    result = []
+    for item in catalog.values():
+        norm_title = normalize_title(item['title'])
+        if norm_title in blacklist:
+            continue
+        aliases = [norm_title] + [normalize_title(alias) for alias in CUSTOM_GAME_ALIASES.get(item['title'], [])]
+        aliases = [alias for alias in aliases if alias]
+        result.append({
             'title': item['title'],
             'url': item['url'],
-            'aliases': [normalize_title(item['title'])] + [normalize_title(alias) for alias in CUSTOM_GAME_ALIASES.get(item['title'], [])],
-        }
-        for item in catalog.values()
-        if normalize_title(item['title']) not in blacklist
-    ]
-def match_game(text: str, catalog: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[str]]:
-    haystack = normalize_title(text)
+            'platform': item.get('platform', ''),
+            'aliases': aliases,
+        })
+    return result
+def match_alias_in_text(alias: str, haystack: str) -> bool:
+    alias_tokens = alias.split()
+    haystack_tokens = haystack.split()
+    if not alias_tokens or len(alias_tokens) > len(haystack_tokens):
+        return False
+    for index in range(len(haystack_tokens) - len(alias_tokens) + 1):
+        if haystack_tokens[index:index + len(alias_tokens)] == alias_tokens:
+            return True
+    return False
+
+
+def preferred_platform_for_segment(segment: Optional[str]) -> str:
+    if not segment:
+        return ''
+    if 'Roblox' in segment:
+        return 'roblox'
+    if 'Steam' in segment:
+        return 'steam'
+    return ''
+
+
+def match_game(title_text: str, description_text: str, catalog: List[Dict[str, Any]], segment: Optional[str] = None) -> Tuple[Optional[str], Optional[str]]:
+    title_haystack = normalize_title(title_text)
+    description_haystack = normalize_title(description_text)
+    preferred_platform = preferred_platform_for_segment(segment)
     best: Optional[Tuple[int, str, str]] = None
     for item in catalog:
+        platform_bonus = 25 if preferred_platform and item.get('platform') == preferred_platform else 0
         for alias in item['aliases']:
-            if alias and alias in haystack:
-                score = len(alias)
+            alias_score = len(alias.replace(' ', ''))
+            if title_haystack and match_alias_in_text(alias, title_haystack):
+                score = 200 + platform_bonus + alias_score
+                if best is None or score > best[0]:
+                    best = (score, item['title'], item['url'])
+            elif description_haystack and match_alias_in_text(alias, description_haystack):
+                score = 50 + platform_bonus + alias_score
                 if best is None or score > best[0]:
                     best = (score, item['title'], item['url'])
     if best is None:
@@ -468,7 +512,7 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
                 continue
             if fallback_entry is None:
                 fallback_entry = feed_entry
-            game, game_url = match_game(feed_entry['title'] + ' ' + feed_entry['description'], catalog)
+            game, game_url = match_game(feed_entry['title'], feed_entry['description'], catalog, creator['segment'])
             if not game:
                 continue
             coverage_key = f"{creator['name']}|{game}"
@@ -526,7 +570,7 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
             continue
         previous_urls = {entry.get('url') for entry in previous_entries if entry.get('url')}
         for entry in latest_entries[:limit]:
-            game, game_url = match_game(entry.get('title', ''), catalog)
+            game, game_url = match_game(entry.get('title', ''), '', catalog)
             created_at = datetime.fromisoformat((entry.get('created_at') or latest_date + 'T00:00:00+00:00').replace('Z', '+00:00'))
             url = entry.get('url', '')
             if (NOW - created_at).days > 14:
