@@ -29,6 +29,7 @@ const els = {
   chartTitle: document.getElementById('chartTitle'),
   chartSvg: document.getElementById('trendChart'),
   chartEmpty: document.getElementById('chartEmpty'),
+  chartTooltip: document.getElementById('chartTooltip'),
   chartFootnote: document.getElementById('chartFootnote'),
   sortHeaders: Array.from(document.querySelectorAll('th[data-sort]')),
 };
@@ -44,6 +45,46 @@ function escapeHtml(text) {
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
+}
+
+function formatMetricValue(value, metricLabel) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) {
+    return String(value);
+  }
+  if (metricLabel === 'hours') {
+    return `${numeric.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} hours played`;
+  }
+  if (metricLabel === 'viewers') {
+    return `${numeric.toLocaleString()} viewers`;
+  }
+  if (metricLabel === 'ccu') {
+    return `${numeric.toLocaleString()} CCU`;
+  }
+  if (metricLabel === 'players') {
+    return `${numeric.toLocaleString()} players`;
+  }
+  return `${numeric.toLocaleString()} ${metricLabel}`;
+}
+
+function hideChartTooltip() {
+  els.chartTooltip.style.display = 'none';
+  els.chartTooltip.setAttribute('aria-hidden', 'true');
+}
+
+function showChartTooltip(event, point, metricLabel) {
+  const bounds = els.chartSvg.getBoundingClientRect();
+  const areaBounds = els.chartSvg.parentElement.getBoundingClientRect();
+  const left = event.clientX - areaBounds.left + 14;
+  const top = event.clientY - areaBounds.top - 14;
+  els.chartTooltip.innerHTML = `
+    <strong>${escapeHtml(point.date)}</strong>
+    <span>${escapeHtml(formatMetricValue(point.value, metricLabel))}</span>
+  `;
+  els.chartTooltip.style.left = `${Math.min(left, bounds.width - 140)}px`;
+  els.chartTooltip.style.top = `${Math.max(top - 36, 10)}px`;
+  els.chartTooltip.style.display = 'block';
+  els.chartTooltip.setAttribute('aria-hidden', 'false');
 }
 
 function loadData() {
@@ -219,6 +260,7 @@ function renderChart() {
     els.chartEmpty.style.display = 'grid';
     els.chartEmpty.textContent = 'Select a row to see movement over time.';
     els.chartFootnote.textContent = '';
+    hideChartTooltip();
     return;
   }
 
@@ -234,6 +276,7 @@ function renderChart() {
     els.chartEmpty.style.display = 'grid';
     els.chartEmpty.textContent = 'Metric history is not available for this source yet.';
     els.chartFootnote.textContent = '';
+    hideChartTooltip();
     return;
   }
 
@@ -267,9 +310,9 @@ function renderChart() {
   const dots = points.map((point, index) => {
     const x = xFor(index);
     const y = yFor(Number(point.value));
-    return `<g>
-      <circle cx="${x}" cy="${y}" r="4" fill="#b44d12" />
-      <title>${point.date}: ${point.value}</title>
+    return `<g class="chart-dot-group" data-index="${index}">
+      <circle class="chart-dot" cx="${x}" cy="${y}" r="6" fill="#b44d12" fill-opacity="0.18" />
+      <circle class="chart-dot-core" cx="${x}" cy="${y}" r="4" fill="#b44d12" />
     </g>`;
   }).join('');
 
@@ -286,6 +329,18 @@ function renderChart() {
   const footnoteMetric = `${row.metricLabel} history`;
   const directionText = direction > 0 ? 'rising' : direction < 0 ? 'falling' : 'flat';
   els.chartFootnote.textContent = `${row.title} ${footnoteMetric} is ${directionText} across ${points.length} snapshots.`;
+
+  els.chartSvg.querySelectorAll('.chart-dot-group').forEach((dotEl) => {
+    dotEl.addEventListener('mouseenter', (event) => {
+      const index = Number(dotEl.dataset.index);
+      showChartTooltip(event, points[index], row.metricLabel);
+    });
+    dotEl.addEventListener('mousemove', (event) => {
+      const index = Number(dotEl.dataset.index);
+      showChartTooltip(event, points[index], row.metricLabel);
+    });
+    dotEl.addEventListener('mouseleave', hideChartTooltip);
+  });
 }
 
 function updateSortHeaders() {
