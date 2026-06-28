@@ -88,19 +88,29 @@ function renderCreatorMomentum() {
     </article>
   `).join('');
 
-  els.creatorCoverageBody.innerHTML = creatorMomentum.coverage.map((row) => `
+  els.creatorCoverageBody.innerHTML = creatorMomentum.coverage.map((row) => {
+    const gameCell = row.gameUrl
+      ? `<a class="game-link" href="${row.gameUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.game)}</a>`
+      : `<span class="${row.game === 'No tracked game yet' ? 'muted' : ''}">${escapeHtml(row.game)}</span>`;
+    const statusCell = row.status === 'NEW'
+      ? '<span class="badge-new">NEW</span>'
+      : row.status === 'Watch'
+        ? '<span class="status-watch">Watch</span>'
+        : '<span class="status-muted">Repeat</span>' ;
+    return `
     <tr>
       <td><a class="game-link" href="${row.creatorUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.creator)}</a></td>
       <td><span class="segment-pill">${escapeHtml(row.segment)}</span></td>
-      <td><a class="game-link" href="${row.gameUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.game)}</a></td>
+      <td>${gameCell}</td>
       <td>${escapeHtml(row.platform)}</td>
       <td><a class="subtle-link" href="${row.videoUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.video)}</a></td>
       <td>${escapeHtml(row.subscribers)}</td>
       <td>${escapeHtml(row.views)}</td>
       <td>${escapeHtml(row.posted)}</td>
-      <td>${row.status === 'NEW' ? '<span class="badge-new">NEW</span>' : '<span class="status-muted">Repeat</span>'}</td>
+      <td>${statusCell}</td>
     </tr>
-  `).join('');
+  `;
+  }).join('');
 
   els.tiktokTrendBody.innerHTML = creatorMomentum.trends.map((row) => `
     <tr>

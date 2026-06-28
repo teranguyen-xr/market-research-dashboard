@@ -382,14 +382,19 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
             feed_entries = fetch_youtube_feed_entries(channel_id)
         except Exception:
             continue
+
+        matched_row = None
+        fallback_entry = None
         for feed_entry in feed_entries:
             if (NOW - feed_entry['published']).days > 30:
                 continue
+            if fallback_entry is None:
+                fallback_entry = feed_entry
             game, game_url = match_game(feed_entry['title'] + ' ' + feed_entry['description'], catalog)
             if not game:
                 continue
             coverage_key = f"{creator['name']}|{game}"
-            coverage_rows.append({
+            matched_row = {
                 'creator': creator['name'],
                 'creatorUrl': creator['url'],
                 'segment': creator['segment'],
@@ -404,9 +409,34 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
                 'posted': relative_time(feed_entry['published']),
                 'postedAt': feed_entry['published'].isoformat(),
                 'status': 'NEW' if coverage_key not in previous_coverage_keys and previous_coverage_keys else 'Repeat',
-            })
+                'matched': True,
+            }
             break
-    coverage_rows.sort(key=lambda item: (item['postedAt'], item['viewsValue']), reverse=True)
+
+        if matched_row is not None:
+            coverage_rows.append(matched_row)
+            continue
+
+        if fallback_entry is not None:
+            coverage_rows.append({
+                'creator': creator['name'],
+                'creatorUrl': creator['url'],
+                'segment': creator['segment'],
+                'game': 'No tracked game yet',
+                'gameUrl': '',
+                'platform': 'YouTube',
+                'video': fallback_entry['title'],
+                'videoUrl': fallback_entry['url'],
+                'subscribers': subscribers,
+                'views': compact_number(fallback_entry['views']),
+                'viewsValue': fallback_entry['views'] or 0,
+                'posted': relative_time(fallback_entry['published']),
+                'postedAt': fallback_entry['published'].isoformat(),
+                'status': 'Watch',
+                'matched': False,
+            })
+
+    coverage_rows.sort(key=lambda item: (item.get('matched', False), item['postedAt'], item['viewsValue']), reverse=True)
     trend_rows: List[Dict[str, Any]] = []
     for platform_name, label, limit in [
         ('tiktok_friendslop', '#friendslop', 5),
