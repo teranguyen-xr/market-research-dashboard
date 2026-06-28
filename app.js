@@ -112,17 +112,22 @@ function renderCreatorMomentum() {
   `;
   }).join('');
 
-  els.tiktokTrendBody.innerHTML = creatorMomentum.trends.map((row) => `
+  els.tiktokTrendBody.innerHTML = creatorMomentum.trends.map((row) => {
+    const gameCell = row.gameUrl
+      ? `<a class="game-link" href="${row.gameUrl}" target="_blank" rel="noreferrer">${escapeHtml(row.game)}</a>`
+      : `${escapeHtml(row.game)}`;
+    return `
     <tr>
       <td><span class="trend-pill">${escapeHtml(row.bucket)}</span></td>
-      <td>${escapeHtml(row.game)}</td>
+      <td>${gameCell}</td>
       <td><a class="subtle-link" href="${row.url}" target="_blank" rel="noreferrer">${escapeHtml(row.caption)}</a></td>
       <td>${escapeHtml(row.creator)}</td>
       <td>${escapeHtml(row.views)}</td>
       <td>${escapeHtml(row.posted)}</td>
       <td>${row.status === 'NEW' ? '<span class="badge-new">NEW</span>' : '<span class="status-muted">Repeat</span>'}</td>
     </tr>
-  `).join('');
+  `;
+  }).join('');
 
   els.creatorSignalChips.innerHTML = creatorMomentum.signals.map((signal) => `
     <div class="signal-chip">${escapeHtml(signal)}</div>

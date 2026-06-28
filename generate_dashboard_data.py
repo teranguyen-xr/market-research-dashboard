@@ -24,8 +24,18 @@ SOURCE_LABELS = {
 }
 CARD_TITLES = {
     'steam': 'Top selling games',
-    'twitch': 'Streamers are playing',
     'statbot': 'AC players are playing',
+}
+TWITCH_SUMMARY_EXCLUDED = {
+    'Just Chatting',
+    'IRL',
+    'Music',
+    'Art',
+    'ASMR',
+    'Sports',
+    'Talk Shows & Podcasts',
+    'Special Events',
+    'Pools, Hot Tubs, and Beaches',
 }
 YOUTUBE_WATCHLIST = [
     {'name': 'Flamingo', 'url': 'https://www.youtube.com/@flamingo', 'segment': 'Roblox discovery'},
@@ -141,6 +151,63 @@ def fetch_roblox_current_ccu() -> Dict[str, float]:
     for game_id, _title, ccu in [(m[1], m[2], m[3]) for m in matches]:
         result[game_id] = float(ccu.replace(',', ''))
     return result
+
+def build_summary_cards(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    cards: List[Dict[str, Any]] = []
+    by_platform: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        by_platform[row['platform']].append(row)
+
+    steam_rows = by_platform.get('steam', [])
+    if steam_rows:
+        top_entry = steam_rows[0]
+        cards.append({
+            'id': 'steam',
+            'title': 'Top selling games',
+            'game': top_entry['title'],
+            'platformLabel': top_entry['platformLabel'],
+            'currentMetric': top_entry['currentMetric'],
+            'delta': top_entry['delta'],
+            'url': top_entry['url'],
+        })
+
+    twitch_rows = by_platform.get('twitch', [])
+    if twitch_rows:
+        filtered = [row for row in twitch_rows if row['title'] not in TWITCH_SUMMARY_EXCLUDED]
+        new_filtered = [row for row in filtered if row.get('isNew')]
+        if new_filtered:
+            twitch_entry = new_filtered[0]
+            twitch_delta = f"Rank #{twitch_entry['rank']}"
+        elif filtered:
+            twitch_entry = filtered[0]
+            twitch_delta = 'No new Twitch game this week'
+        else:
+            twitch_entry = twitch_rows[0]
+            twitch_delta = 'No new Twitch game this week'
+        cards.append({
+            'id': 'twitch',
+            'title': 'New Game from Twitch Streamers',
+            'game': twitch_entry['title'],
+            'platformLabel': twitch_entry['platformLabel'],
+            'currentMetric': twitch_entry['currentMetric'],
+            'delta': twitch_delta,
+            'url': twitch_entry['url'],
+        })
+
+    statbot_rows = by_platform.get('statbot', [])
+    if statbot_rows:
+        top_entry = statbot_rows[0]
+        cards.append({
+            'id': 'statbot',
+            'title': 'AC players are playing',
+            'game': top_entry['title'],
+            'platformLabel': top_entry['platformLabel'],
+            'currentMetric': top_entry['currentMetric'],
+            'delta': top_entry['delta'],
+            'url': top_entry['url'],
+        })
+    return cards
+
 def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> Dict[str, Any]:
     steam_live = {}
     roblox_live = {}
@@ -152,7 +219,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
         roblox_live = fetch_roblox_current_ccu()
     latest_rows: List[Dict[str, Any]] = []
     histories: Dict[str, List[Dict[str, Any]]] = {}
-    cards: List[Dict[str, Any]] = []
     for platform in SOURCE_ORDER:
         platform_snaps = snapshots.get(platform, {})
         if not platform_snaps:
@@ -233,18 +299,8 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                     'isNew': bool(match.get('is_new')),
                 })
             histories[row_key] = history
-        if platform in CARD_TITLES and latest_entries:
-            top_entry = latest_rows[-len(latest_entries)]
-            cards.append({
-                'id': platform,
-                'title': CARD_TITLES[platform],
-                'game': top_entry['title'],
-                'platformLabel': top_entry['platformLabel'],
-                'currentMetric': top_entry['currentMetric'],
-                'delta': top_entry['delta'],
-                'url': top_entry['url'],
-            })
     latest_rows.sort(key=lambda row: (SOURCE_ORDER.index(row['platform']), row['rank']))
+    cards = build_summary_cards(latest_rows)
     return {'rows': latest_rows, 'histories': histories, 'cards': cards}
 def compact_number(value: Optional[float]) -> str:
     if value is None:
@@ -276,31 +332,49 @@ def shorten_words(text: str, limit: int = 7) -> str:
     if len(words) <= limit:
         return ' '.join(words)
     return ' '.join(words[:limit]) + '...'
-def load_previous_creator_state() -> Tuple[set[str], set[str]]:
-    if not OUTPUT_PATH.exists():
-        return set(), set()
-    try:
-        payload = json.loads(OUTPUT_PATH.read_text(encoding='utf-8'))
-    except Exception:
-        return set(), set()
-    creator_momentum = payload.get('creatorMomentum') or {}
-    coverage_keys = {
-        f"{item.get('creator')}|{item.get('game')}"
-        for item in creator_momentum.get('coverage', [])
-        if item.get('creator') and item.get('game')
+def current_snapshot_date() -> str:
+    return datetime.now().strftime('%Y-%m-%d')
+
+
+def latest_snapshot_entries_before(platform_snapshots: Dict[str, Dict[str, Any]], date_limit: str) -> List[Dict[str, Any]]:
+    for date in sorted(platform_snapshots.keys(), reverse=True):
+        if date >= date_limit:
+            continue
+        entries = platform_snapshots[date].get('entries', [])
+        if entries:
+            return entries
+    return []
+
+
+def save_snapshot(platform: str, entries: List[Dict[str, Any]], source_url: str) -> Path:
+    SNAPSHOT_ROOT.mkdir(parents=True, exist_ok=True)
+    target = SNAPSHOT_ROOT / f"{current_snapshot_date()}-{platform}.json"
+    payload = {
+        'generated_at': datetime.now().isoformat(),
+        'source_url': source_url,
+        'entries': entries,
     }
-    trend_keys = {item.get('url') for item in creator_momentum.get('trends', []) if item.get('url')}
-    return coverage_keys, trend_keys
+    target.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
+    return target
 def build_game_catalog(rows: List[Dict[str, Any]], snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> List[Dict[str, str]]:
     blacklist = {'roblox', 'steam', 'twitch', 'ac discord', 'discord'}
     catalog: Dict[str, Dict[str, str]] = {}
+    preferred_platforms = {'steam', 'roblox'}
     for row in rows:
         name = row.get('title') or ''
         if not name or normalize_title(name) in blacklist:
             continue
-        catalog[name] = {'title': name, 'url': row.get('url') or ''}
+        existing = catalog.get(name)
+        url = row.get('url') or ''
+        should_replace = existing is None
+        if existing is not None and not existing.get('url') and row.get('platform') in preferred_platforms:
+            should_replace = True
+        if existing is not None and row.get('platform') in preferred_platforms and existing.get('url', '').startswith('https://twitchtracker.com'):
+            should_replace = True
+        if should_replace:
+            catalog[name] = {'title': name, 'url': url if row.get('platform') in preferred_platforms else existing.get('url', '') if existing else ''}
     for title, aliases in CUSTOM_GAME_ALIASES.items():
-        catalog.setdefault(title, {'title': title, 'url': CUSTOM_GAME_URLS.get(title, '')})
+        catalog[title] = {'title': title, 'url': CUSTOM_GAME_URLS.get(title, catalog.get(title, {}).get('url', ''))}
     return [
         {
             'title': item['title'],
@@ -371,7 +445,11 @@ def fetch_youtube_feed_entries(channel_id: str) -> List[Dict[str, Any]]:
         })
     return entries
 def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows: List[Dict[str, Any]]) -> Dict[str, Any]:
-    previous_coverage_keys, previous_trend_urls = load_previous_creator_state()
+    previous_coverage_keys = {
+        f"{item.get('creator')}|{item.get('game')}"
+        for item in latest_snapshot_entries_before(snapshots.get('youtube_creators', {}), current_snapshot_date())
+        if item.get('creator') and item.get('game')
+    }
     catalog = build_game_catalog(rows, snapshots)
     coverage_rows: List[Dict[str, Any]] = []
     for creator in YOUTUBE_WATCHLIST:
@@ -448,7 +526,7 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
             continue
         previous_urls = {entry.get('url') for entry in previous_entries if entry.get('url')}
         for entry in latest_entries[:limit]:
-            game, _game_url = match_game(entry.get('title', ''), catalog)
+            game, game_url = match_game(entry.get('title', ''), catalog)
             created_at = datetime.fromisoformat((entry.get('created_at') or latest_date + 'T00:00:00+00:00').replace('Z', '+00:00'))
             url = entry.get('url', '')
             if (NOW - created_at).days > 14:
@@ -456,6 +534,7 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
             trend_rows.append({
                 'bucket': label,
                 'game': game or 'Unclassified',
+                'gameUrl': game_url or '',
                 'caption': shorten_words(entry.get('title', ''), 7),
                 'url': url,
                 'creator': extract_handle_from_url(url),
@@ -463,7 +542,7 @@ def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows
                 'viewsValue': parse_metric_number(entry.get('views')) or 0,
                 'posted': relative_time(created_at),
                 'postedAt': created_at.isoformat(),
-                'status': 'NEW' if bool(entry.get('is_new')) or (url not in previous_urls and url not in previous_trend_urls) else 'Repeat',
+                'status': 'NEW' if bool(entry.get('is_new')) or url not in previous_urls else 'Repeat',
             })
     trend_rows.sort(key=lambda item: (item['postedAt'], item['viewsValue']), reverse=True)
     all_game_counts = Counter(row['game'] for row in coverage_rows if row.get('game'))
@@ -511,6 +590,7 @@ def build_dashboard_payload() -> Dict[str, Any]:
     snapshots = load_snapshots()
     built = build_rows_and_history(snapshots)
     creator_momentum = build_creator_momentum(snapshots, built['rows'])
+    save_snapshot('youtube_creators', creator_momentum['coverage'], 'dashboard-generator-youtube-rss-watchlist')
     latest_snapshot_date = max(
         date
         for platform_data in snapshots.values()
