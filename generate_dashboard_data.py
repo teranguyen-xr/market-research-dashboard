@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-
 import json
 import re
-from collections import defaultdict
-from datetime import datetime
+import xml.etree.ElementTree as ET
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 from urllib.request import Request, urlopen
-
 ROOT = Path('/Users/teranguyen/Documents/Next Games Framework/market-research-dashboard')
 OUTPUT_PATH = ROOT / 'data' / 'dashboard-data.json'
 SNAPSHOT_ROOT = Path('/Users/teranguyen/.local/share/market-research-bot/data/snapshots')
 STEAM_PLAYERS_API = 'https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid={appid}'
 ROBLOX_ACTIVE_URL = 'https://game.roblox-jp.com/en/best/active/?genre=All'
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
-
+NOW = datetime.now(timezone.utc)
 SOURCE_ORDER = ['statbot', 'roblox', 'steam', 'twitch']
 SOURCE_LABELS = {
     'steam': 'Steam',
@@ -28,27 +27,53 @@ CARD_TITLES = {
     'twitch': 'Streamers are playing',
     'statbot': 'AC players are playing',
 }
-
-
+YOUTUBE_WATCHLIST = [
+    {'name': 'Flamingo', 'url': 'https://www.youtube.com/@flamingo', 'segment': 'Roblox discovery'},
+    {'name': 'KreekCraft', 'url': 'https://www.youtube.com/@KreekCraft', 'segment': 'Roblox discovery'},
+    {'name': 'ItsFunneh', 'url': 'https://www.youtube.com/@ItsFunneh', 'segment': 'Roblox discovery'},
+    {'name': 'Markiplier', 'url': 'https://www.youtube.com/@markiplier', 'segment': 'Steam co-op survival'},
+    {'name': 'jacksepticeye', 'url': 'https://www.youtube.com/@jacksepticeye', 'segment': 'Steam co-op survival'},
+    {'name': 'caseoh_', 'url': 'https://www.youtube.com/@caseoh_', 'segment': 'Steam co-op survival'},
+    {'name': 'VanossGaming', 'url': 'https://www.youtube.com/@VanossGaming', 'segment': 'Steam friendslop / party-chaos'},
+    {'name': 'SMii7Y', 'url': 'https://www.youtube.com/@SMii7Y', 'segment': 'Steam friendslop / party-chaos'},
+    {'name': 'H2ODelirious', 'url': 'https://www.youtube.com/@H2ODelirious', 'segment': 'Steam friendslop / party-chaos'},
+    {'name': 'WILDCAT', 'url': 'https://www.youtube.com/@WILDCAT', 'segment': 'Steam friendslop / party-chaos'},
+]
+CUSTOM_GAME_ALIASES = {
+    'R.E.P.O.': ['repo'],
+    'PEAK': ['peak'],
+    'Dead Rails': ['dead rails'],
+    'Grow a Garden': ['grow a garden'],
+    'Meccha Chameleon': ['meccha chameleon', 'meccha'],
+    'Inferno Protocol': ['inferno protocol'],
+    'ARC Raiders': ['arc raiders'],
+    'We Gotta Go': ['we gotta go'],
+    'CAIRN': ['cairn'],
+}
+CUSTOM_GAME_URLS = {
+    'R.E.P.O.': 'https://store.steampowered.com/app/3241660/REPO/',
+    'PEAK': 'https://store.steampowered.com/app/3527290/PEAK/',
+    'Dead Rails': 'https://www.roblox.com/games/116495829188952/Dead-Rails-Alpha',
+    'Grow a Garden': 'https://www.roblox.com/games/126884695634066/Grow-a-Garden',
+    'Meccha Chameleon': 'https://store.steampowered.com/search/?term=Meccha%20Chameleon',
+    'Inferno Protocol': 'https://store.steampowered.com/search/?term=Inferno%20Protocol',
+    'ARC Raiders': 'https://store.steampowered.com/app/1808500/ARC_Raiders/',
+    'We Gotta Go': 'https://store.steampowered.com/search/?term=We%20Gotta%20Go',
+    'CAIRN': 'https://store.steampowered.com/app/1588550/CAIRN/',
+}
 def fetch_text(url: str) -> str:
     request = Request(url, headers={'User-Agent': USER_AGENT})
     with urlopen(request, timeout=30) as response:
         encoding = response.headers.get_content_charset() or 'utf-8'
         return response.read().decode(encoding, errors='replace')
-
-
 def fetch_json(url: str) -> Dict[str, Any]:
     return json.loads(fetch_text(url))
-
-
 def normalize_title(value: str) -> str:
     value = value or ''
     value = value.replace('™', '').replace('®', '')
-    value = re.sub(r'\([^)]*\)', '', value)
-    value = re.sub(r'[^a-zA-Z0-9]+', ' ', value)
+    value = re.sub(r'\([^)]*\)', ' ', value)
+    value = re.sub(r'[^a-zA-Z0-9#@]+', ' ', value)
     return re.sub(r'\s+', ' ', value).strip().lower()
-
-
 def parse_metric_number(value: Any) -> Optional[float]:
     if value is None:
         return None
@@ -61,8 +86,6 @@ def parse_metric_number(value: Any) -> Optional[float]:
         return float(text)
     except ValueError:
         return None
-
-
 def format_number(value: Optional[float], metric_label: str) -> str:
     if value is None:
         return 'n/a'
@@ -75,8 +98,6 @@ def format_number(value: Optional[float], metric_label: str) -> str:
     if metric_label == 'players':
         return f'{int(round(value)):,.0f} players'
     return f'{value:,.0f}'
-
-
 def format_delta(current: Optional[float], previous: Optional[float], metric_label: str) -> Tuple[str, Optional[float]]:
     if current is None or previous is None:
         return 'n/a', None
@@ -84,8 +105,6 @@ def format_delta(current: Optional[float], previous: Optional[float], metric_lab
     if metric_label == 'hours':
         return f"{delta:+,.1f}", delta
     return f"{delta:+,.0f}", delta
-
-
 def load_snapshots() -> Dict[str, Dict[str, Dict[str, Any]]]:
     snapshots: Dict[str, Dict[str, Dict[str, Any]]] = defaultdict(dict)
     for path in sorted(SNAPSHOT_ROOT.glob('*.json')):
@@ -98,12 +117,8 @@ def load_snapshots() -> Dict[str, Dict[str, Dict[str, Any]]]:
         payload = json.loads(path.read_text(encoding='utf-8'))
         snapshots[platform][date_part] = payload
     return snapshots
-
-
 def ordered_dates(platform_data: Dict[str, Dict[str, Any]]) -> List[str]:
     return sorted(platform_data.keys())
-
-
 def fetch_steam_current_players(app_ids: Iterable[str]) -> Dict[str, float]:
     results: Dict[str, float] = {}
     for app_id in app_ids:
@@ -115,8 +130,6 @@ def fetch_steam_current_players(app_ids: Iterable[str]) -> Dict[str, float]:
         except Exception:
             continue
     return results
-
-
 def fetch_roblox_current_ccu() -> Dict[str, float]:
     html = fetch_text(ROBLOX_ACTIVE_URL)
     matches = re.findall(
@@ -128,8 +141,6 @@ def fetch_roblox_current_ccu() -> Dict[str, float]:
     for game_id, _title, ccu in [(m[1], m[2], m[3]) for m in matches]:
         result[game_id] = float(ccu.replace(',', ''))
     return result
-
-
 def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> Dict[str, Any]:
     steam_live = {}
     roblox_live = {}
@@ -139,11 +150,9 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
         steam_live = fetch_steam_current_players([entry['game_id'] for entry in latest_steam_entries])
     if 'roblox' in snapshots:
         roblox_live = fetch_roblox_current_ccu()
-
     latest_rows: List[Dict[str, Any]] = []
     histories: Dict[str, List[Dict[str, Any]]] = {}
     cards: List[Dict[str, Any]] = []
-
     for platform in SOURCE_ORDER:
         platform_snaps = snapshots.get(platform, {})
         if not platform_snaps:
@@ -156,7 +165,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
             str(entry.get('game_id')): entry
             for entry in (platform_snaps.get(previous_date, {}).get('entries', []) if previous_date else [])
         }
-
         for entry in latest_entries:
             game_id = str(entry.get('game_id'))
             source = platform
@@ -172,7 +180,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                 current_metric = steam_live.get(game_id)
             elif source == 'roblox':
                 current_metric = roblox_live.get(game_id)
-
             previous_entry = previous_entries.get(game_id)
             previous_metric = parse_metric_number(previous_entry.get('views')) if previous_entry else None
             previous_rank = int(previous_entry.get('rank')) if previous_entry else None
@@ -191,7 +198,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                     delta_value = float(rank_delta)
             else:
                 delta_text, delta_value = format_delta(current_metric, previous_metric, metric_label)
-
             latest_rows.append({
                 'key': row_key,
                 'title': entry.get('title', ''),
@@ -208,7 +214,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                 'isNew': bool(entry.get('is_new')),
                 'snapshotDate': latest_date,
             })
-
             history: List[Dict[str, Any]] = []
             for date in dates:
                 snap_entries = platform_snaps[date].get('entries', [])
@@ -228,7 +233,6 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                     'isNew': bool(match.get('is_new')),
                 })
             histories[row_key] = history
-
         if platform in CARD_TITLES and latest_entries:
             top_entry = latest_rows[-len(latest_entries)]
             cards.append({
@@ -240,14 +244,243 @@ def build_rows_and_history(snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> D
                 'delta': top_entry['delta'],
                 'url': top_entry['url'],
             })
-
     latest_rows.sort(key=lambda row: (SOURCE_ORDER.index(row['platform']), row['rank']))
     return {'rows': latest_rows, 'histories': histories, 'cards': cards}
-
-
+def compact_number(value: Optional[float]) -> str:
+    if value is None:
+        return 'n/a'
+    value = float(value)
+    if value >= 1_000_000_000:
+        return f'{value / 1_000_000_000:.1f}B'
+    if value >= 1_000_000:
+        return f'{value / 1_000_000:.1f}M'
+    if value >= 1_000:
+        return f'{value / 1_000:.1f}K'
+    return f'{int(round(value))}'
+def compact_subscriber_label(label: str) -> str:
+    text = label.lower().replace(' subscribers', '').replace(' subscriber', '').strip()
+    text = text.replace(' million', 'M').replace(' thousand', 'K').replace(' billion', 'B')
+    return text.replace(' ', '')
+def relative_time(value: datetime) -> str:
+    delta_days = max(0, int((NOW - value).total_seconds() // 86400))
+    if delta_days == 0:
+        return 'Today'
+    if delta_days == 1:
+        return '1 day ago'
+    return f'{delta_days} days ago'
+def extract_handle_from_url(url: str) -> str:
+    match = re.search(r'/@([^/]+)/video/', url)
+    return f"@{match.group(1)}" if match else url
+def shorten_words(text: str, limit: int = 7) -> str:
+    words = re.sub(r'\s+', ' ', text).strip().split(' ')
+    if len(words) <= limit:
+        return ' '.join(words)
+    return ' '.join(words[:limit]) + '...'
+def load_previous_creator_state() -> Tuple[set[str], set[str]]:
+    if not OUTPUT_PATH.exists():
+        return set(), set()
+    try:
+        payload = json.loads(OUTPUT_PATH.read_text(encoding='utf-8'))
+    except Exception:
+        return set(), set()
+    creator_momentum = payload.get('creatorMomentum') or {}
+    coverage_keys = {
+        f"{item.get('creator')}|{item.get('game')}"
+        for item in creator_momentum.get('coverage', [])
+        if item.get('creator') and item.get('game')
+    }
+    trend_keys = {item.get('url') for item in creator_momentum.get('trends', []) if item.get('url')}
+    return coverage_keys, trend_keys
+def build_game_catalog(rows: List[Dict[str, Any]], snapshots: Dict[str, Dict[str, Dict[str, Any]]]) -> List[Dict[str, str]]:
+    blacklist = {'roblox', 'steam', 'twitch', 'ac discord', 'discord'}
+    catalog: Dict[str, Dict[str, str]] = {}
+    for row in rows:
+        name = row.get('title') or ''
+        if not name or normalize_title(name) in blacklist:
+            continue
+        catalog[name] = {'title': name, 'url': row.get('url') or ''}
+    for title, aliases in CUSTOM_GAME_ALIASES.items():
+        catalog.setdefault(title, {'title': title, 'url': CUSTOM_GAME_URLS.get(title, '')})
+    return [
+        {
+            'title': item['title'],
+            'url': item['url'],
+            'aliases': [normalize_title(item['title'])] + [normalize_title(alias) for alias in CUSTOM_GAME_ALIASES.get(item['title'], [])],
+        }
+        for item in catalog.values()
+        if normalize_title(item['title']) not in blacklist
+    ]
+def match_game(text: str, catalog: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[str]]:
+    haystack = normalize_title(text)
+    best: Optional[Tuple[int, str, str]] = None
+    for item in catalog:
+        for alias in item['aliases']:
+            if alias and alias in haystack:
+                score = len(alias)
+                if best is None or score > best[0]:
+                    best = (score, item['title'], item['url'])
+    if best is None:
+        return None, None
+    return best[1], best[2]
+def latest_non_empty_snapshot(platform_snapshots: Dict[str, Dict[str, Any]]) -> Tuple[Optional[str], List[Dict[str, Any]], Optional[str], List[Dict[str, Any]]]:
+    dates = ordered_dates(platform_snapshots)
+    latest_date = None
+    latest_entries: List[Dict[str, Any]] = []
+    previous_date = None
+    previous_entries: List[Dict[str, Any]] = []
+    for date in reversed(dates):
+        entries = platform_snapshots[date].get('entries', [])
+        if entries and latest_date is None:
+            latest_date = date
+            latest_entries = entries
+        elif entries and latest_date is not None:
+            previous_date = date
+            previous_entries = entries
+            break
+    return latest_date, latest_entries, previous_date, previous_entries
+def parse_channel_metadata(channel_url: str) -> Tuple[Optional[str], str]:
+    html = fetch_text(channel_url)
+    channel_id_match = re.search(r'externalId":"([^"]+)"', html) or re.search(r'channelId":"([^"]+)"', html)
+    subscriber_match = re.search(r'accessibilityLabel":"([0-9.,]+\s+(?:million|thousand|billion)?\s*subscribers)"', html, flags=re.IGNORECASE)
+    channel_id = channel_id_match.group(1) if channel_id_match else None
+    subscribers = compact_subscriber_label(subscriber_match.group(1)) if subscriber_match else 'n/a'
+    return channel_id, subscribers
+def fetch_youtube_feed_entries(channel_id: str) -> List[Dict[str, Any]]:
+    rss = fetch_text(f'https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}')
+    root = ET.fromstring(rss)
+    ns = {
+        'atom': 'http://www.w3.org/2005/Atom',
+        'media': 'http://search.yahoo.com/mrss/',
+    }
+    entries: List[Dict[str, Any]] = []
+    for entry in root.findall('atom:entry', ns):
+        title = entry.findtext('atom:title', default='', namespaces=ns)
+        link_el = entry.find('atom:link', ns)
+        link = link_el.attrib.get('href', '') if link_el is not None else ''
+        published_text = entry.findtext('atom:published', default='', namespaces=ns)
+        published = datetime.fromisoformat(published_text.replace('Z', '+00:00')) if published_text else NOW
+        description = entry.findtext('.//media:description', default='', namespaces=ns)
+        statistics = entry.find('.//media:statistics', ns)
+        views = parse_metric_number(statistics.attrib.get('views')) if statistics is not None else None
+        entries.append({
+            'title': title,
+            'url': link,
+            'published': published,
+            'description': description,
+            'views': views,
+        })
+    return entries
+def build_creator_momentum(snapshots: Dict[str, Dict[str, Dict[str, Any]]], rows: List[Dict[str, Any]]) -> Dict[str, Any]:
+    previous_coverage_keys, previous_trend_urls = load_previous_creator_state()
+    catalog = build_game_catalog(rows, snapshots)
+    coverage_rows: List[Dict[str, Any]] = []
+    for creator in YOUTUBE_WATCHLIST:
+        try:
+            channel_id, subscribers = parse_channel_metadata(creator['url'])
+            if not channel_id:
+                continue
+            feed_entries = fetch_youtube_feed_entries(channel_id)
+        except Exception:
+            continue
+        for feed_entry in feed_entries:
+            if (NOW - feed_entry['published']).days > 30:
+                continue
+            game, game_url = match_game(feed_entry['title'] + ' ' + feed_entry['description'], catalog)
+            if not game:
+                continue
+            coverage_key = f"{creator['name']}|{game}"
+            coverage_rows.append({
+                'creator': creator['name'],
+                'creatorUrl': creator['url'],
+                'segment': creator['segment'],
+                'game': game,
+                'gameUrl': game_url or '',
+                'platform': 'YouTube',
+                'video': feed_entry['title'],
+                'videoUrl': feed_entry['url'],
+                'subscribers': subscribers,
+                'views': compact_number(feed_entry['views']),
+                'viewsValue': feed_entry['views'] or 0,
+                'posted': relative_time(feed_entry['published']),
+                'postedAt': feed_entry['published'].isoformat(),
+                'status': 'NEW' if coverage_key not in previous_coverage_keys and previous_coverage_keys else 'Repeat',
+            })
+            break
+    coverage_rows.sort(key=lambda item: (item['postedAt'], item['viewsValue']), reverse=True)
+    trend_rows: List[Dict[str, Any]] = []
+    for platform_name, label, limit in [
+        ('tiktok_friendslop', '#friendslop', 5),
+        ('tiktok_gaming', '#gaming', 5),
+    ]:
+        platform_snaps = snapshots.get(platform_name, {})
+        latest_date, latest_entries, previous_date, previous_entries = latest_non_empty_snapshot(platform_snaps)
+        if not latest_entries:
+            continue
+        previous_urls = {entry.get('url') for entry in previous_entries if entry.get('url')}
+        for entry in latest_entries[:limit]:
+            game, _game_url = match_game(entry.get('title', ''), catalog)
+            created_at = datetime.fromisoformat((entry.get('created_at') or latest_date + 'T00:00:00+00:00').replace('Z', '+00:00'))
+            url = entry.get('url', '')
+            if (NOW - created_at).days > 14:
+                continue
+            trend_rows.append({
+                'bucket': label,
+                'game': game or 'Unclassified',
+                'caption': shorten_words(entry.get('title', ''), 7),
+                'url': url,
+                'creator': extract_handle_from_url(url),
+                'views': compact_number(parse_metric_number(entry.get('views'))),
+                'viewsValue': parse_metric_number(entry.get('views')) or 0,
+                'posted': relative_time(created_at),
+                'postedAt': created_at.isoformat(),
+                'status': 'NEW' if bool(entry.get('is_new')) or (url not in previous_urls and url not in previous_trend_urls) else 'Repeat',
+            })
+    trend_rows.sort(key=lambda item: (item['postedAt'], item['viewsValue']), reverse=True)
+    all_game_counts = Counter(row['game'] for row in coverage_rows if row.get('game'))
+    most_covered_game, most_covered_count = ('No creator match yet', 0)
+    if all_game_counts:
+        most_covered_game, most_covered_count = all_game_counts.most_common(1)[0]
+    breakout_candidates = coverage_rows + trend_rows
+    breakout = max(breakout_candidates, key=lambda item: item.get('viewsValue', 0), default=None)
+    theme_counter = Counter()
+    for row in coverage_rows:
+        theme_counter[row['segment']] += 1
+    for row in trend_rows:
+        theme_counter[row['bucket']] += 1
+    theme_label, theme_count = ('No trend yet', 0)
+    if theme_counter:
+        theme_label, theme_count = theme_counter.most_common(1)[0]
+    cards = [
+        {
+            'title': 'Most Covered New Game',
+            'primary': most_covered_game,
+            'meta': 'Tracked creator coverage',
+            'detail': f'{most_covered_count} creator matches this week' if most_covered_count else 'No creator matches yet',
+        },
+        {
+            'title': 'Biggest Breakout Video',
+            'primary': (f"{breakout.get('creator', '')} • {breakout.get('game', '')}".strip(' •') if breakout else 'No breakout yet'),
+            'meta': breakout.get('platform', breakout.get('bucket', '')) if breakout else '',
+            'detail': f"{breakout.get('views')} views • {breakout.get('posted')}" if breakout else 'Waiting for source data',
+        },
+        {
+            'title': 'Most Repeated Theme',
+            'primary': theme_label,
+            'meta': 'Recurring across creator sources',
+            'detail': f'{theme_count} rows this week' if theme_count else 'No repeated theme yet',
+        },
+    ]
+    signals = [f'{game} • {count} creators' for game, count in all_game_counts.most_common(6)]
+    return {
+        'cards': cards,
+        'coverage': coverage_rows,
+        'trends': trend_rows[:10],
+        'signals': signals,
+    }
 def build_dashboard_payload() -> Dict[str, Any]:
     snapshots = load_snapshots()
     built = build_rows_and_history(snapshots)
+    creator_momentum = build_creator_momentum(snapshots, built['rows'])
     latest_snapshot_date = max(
         date
         for platform_data in snapshots.values()
@@ -259,6 +492,7 @@ def build_dashboard_payload() -> Dict[str, Any]:
         'generatedAt': datetime.now().isoformat(),
         'latestSnapshotDate': latest_snapshot_date,
         'cards': ordered_cards,
+        'creatorMomentum': creator_momentum,
         'rows': built['rows'],
         'histories': built['histories'],
         'sources': [{
@@ -266,15 +500,14 @@ def build_dashboard_payload() -> Dict[str, Any]:
             'label': SOURCE_LABELS[source],
         } for source in SOURCE_ORDER],
     }
-
-
 def main() -> int:
     payload = build_dashboard_payload()
     OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
     print(f'Wrote {OUTPUT_PATH}')
     print(f"Rows: {len(payload['rows'])}")
+    print(f"Creator coverage rows: {len(payload['creatorMomentum']['coverage'])}")
+    print(f"TikTok trend rows: {len(payload['creatorMomentum']['trends'])}")
     return 0
-
 
 if __name__ == '__main__':
     raise SystemExit(main())

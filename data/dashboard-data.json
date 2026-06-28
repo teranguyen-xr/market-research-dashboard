@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T13:16:23.356707",
+  "generatedAt": "2026-06-28T14:48:56.133140",
   "latestSnapshotDate": "2026-06-22",
   "cards": [
     {
@@ -7,7 +7,7 @@
       "title": "Top selling games",
       "game": "MECCHA CHAMELEON",
       "platformLabel": "Steam",
-      "currentMetric": "189,674 players",
+      "currentMetric": "193,745 players",
       "delta": "n/a",
       "url": "https://store.steampowered.com/app/4704690/"
     },
@@ -30,6 +30,224 @@
       "url": ""
     }
   ],
+  "creatorMomentum": {
+    "cards": [
+      {
+        "title": "Most Covered New Game",
+        "primary": "MECCHA CHAMELEON",
+        "meta": "Tracked creator coverage",
+        "detail": "7 creator matches this week"
+      },
+      {
+        "title": "Biggest Breakout Video",
+        "primary": "SMii7Y \u2022 MECCHA CHAMELEON",
+        "meta": "YouTube",
+        "detail": "5.6M views \u2022 7 days ago"
+      },
+      {
+        "title": "Most Repeated Theme",
+        "primary": "#friendslop",
+        "meta": "Recurring across creator sources",
+        "detail": "5 rows this week"
+      }
+    ],
+    "coverage": [
+      {
+        "creator": "WILDCAT",
+        "creatorUrl": "https://www.youtube.com/@WILDCAT",
+        "segment": "Steam friendslop / party-chaos",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "This Meccha Chameleon Video Almost Got My Channel Terminated (actually)",
+        "videoUrl": "https://www.youtube.com/watch?v=BLjYFbU1Mh4",
+        "subscribers": "8.01M",
+        "views": "88.9K",
+        "viewsValue": 88887.0,
+        "posted": "Today",
+        "postedAt": "2026-06-28T02:25:59+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "KreekCraft",
+        "creatorUrl": "https://www.youtube.com/@KreekCraft",
+        "segment": "Roblox discovery",
+        "game": "Grow a Garden",
+        "gameUrl": "https://www.roblox.com/games/126884695634066/Grow-a-Garden",
+        "platform": "YouTube",
+        "video": "GROW A GARDEN 2 UPDATE",
+        "videoUrl": "https://www.youtube.com/watch?v=OOvwbaFmm8E",
+        "subscribers": "17.1M",
+        "views": "269.7K",
+        "viewsValue": 269660.0,
+        "posted": "1 day ago",
+        "postedAt": "2026-06-27T14:19:22+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "VanossGaming",
+        "creatorUrl": "https://www.youtube.com/@VanossGaming",
+        "segment": "Steam friendslop / party-chaos",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "Meccha Chameleon - ELITE Level Hiding Spots!",
+        "videoUrl": "https://www.youtube.com/watch?v=oQSGKDOayAg",
+        "subscribers": "26M",
+        "views": "879.9K",
+        "viewsValue": 879913.0,
+        "posted": "1 day ago",
+        "postedAt": "2026-06-27T02:22:20+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "Flamingo",
+        "creatorUrl": "https://www.youtube.com/@flamingo",
+        "segment": "Roblox discovery",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "MECCHA CHAMELEON against friends...",
+        "videoUrl": "https://www.youtube.com/watch?v=YQNPzr2TkWI",
+        "subscribers": "14.5M",
+        "views": "1.2M",
+        "viewsValue": 1238531.0,
+        "posted": "2 days ago",
+        "postedAt": "2026-06-26T07:26:08+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "H2ODelirious",
+        "creatorUrl": "https://www.youtube.com/@H2ODelirious",
+        "segment": "Steam friendslop / party-chaos",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "This Meccha Chameleon spot is OP!",
+        "videoUrl": "https://www.youtube.com/shorts/e9l6_h4VAYI",
+        "subscribers": "13.7M",
+        "views": "38.8K",
+        "viewsValue": 38780.0,
+        "posted": "3 days ago",
+        "postedAt": "2026-06-25T15:00:29+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "caseoh_",
+        "creatorUrl": "https://www.youtube.com/@caseoh_",
+        "segment": "Steam co-op survival",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "My Meccha Chameleon Theory Is Revealed",
+        "videoUrl": "https://www.youtube.com/shorts/8d4PEZLuEJ4",
+        "subscribers": "10.6M",
+        "views": "427.9K",
+        "viewsValue": 427867.0,
+        "posted": "6 days ago",
+        "postedAt": "2026-06-22T01:00:16+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "SMii7Y",
+        "creatorUrl": "https://www.youtube.com/@SMii7Y",
+        "segment": "Steam friendslop / party-chaos",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "Meccha Chameleon spots that make you say \"That Pain't Me\"",
+        "videoUrl": "https://www.youtube.com/watch?v=Z8U_0y4ShW0",
+        "subscribers": "8.76M",
+        "views": "5.6M",
+        "viewsValue": 5593823.0,
+        "posted": "7 days ago",
+        "postedAt": "2026-06-20T19:13:29+00:00",
+        "status": "Repeat"
+      },
+      {
+        "creator": "ItsFunneh",
+        "creatorUrl": "https://www.youtube.com/@ItsFunneh",
+        "segment": "Roblox discovery",
+        "game": "MECCHA CHAMELEON",
+        "gameUrl": "https://twitchtracker.com/games/1820839024",
+        "platform": "YouTube",
+        "video": "HIDE AND SEEK BUT YOU PAINT!? Meccha Chameleon!",
+        "videoUrl": "https://www.youtube.com/watch?v=cypIcKOXTFo",
+        "subscribers": "12.1M",
+        "views": "1.1M",
+        "viewsValue": 1126969.0,
+        "posted": "7 days ago",
+        "postedAt": "2026-06-20T19:00:02+00:00",
+        "status": "Repeat"
+      }
+    ],
+    "trends": [
+      {
+        "bucket": "#friendslop",
+        "game": "MECCHA CHAMELEON",
+        "caption": "So meccha chameleon has sold 3 million...",
+        "url": "https://www.tiktok.com/@cdaddychill/video/7653287230487727373",
+        "creator": "@cdaddychill",
+        "views": "138.9K",
+        "viewsValue": 138900.0,
+        "posted": "8 days ago",
+        "postedAt": "2026-06-20T01:43:32+00:00",
+        "status": "NEW"
+      },
+      {
+        "bucket": "#friendslop",
+        "game": "Inferno Protocol",
+        "caption": "This NEW Co-Op Game Is Just Like...",
+        "url": "https://www.tiktok.com/@friendslopgaming/video/7653152122392939789",
+        "creator": "@friendslopgaming",
+        "views": "1.1M",
+        "viewsValue": 1100000.0,
+        "posted": "9 days ago",
+        "postedAt": "2026-06-19T16:59:09+00:00",
+        "status": "NEW"
+      },
+      {
+        "bucket": "#friendslop",
+        "game": "Unclassified",
+        "caption": "just to play it once \ud83d\udc94 #spiderman...",
+        "url": "https://www.tiktok.com/@frypanboy/video/7652992942985973024",
+        "creator": "@frypanboy",
+        "views": "139.5K",
+        "viewsValue": 139500.0,
+        "posted": "9 days ago",
+        "postedAt": "2026-06-19T06:41:24+00:00",
+        "status": "NEW"
+      },
+      {
+        "bucket": "#friendslop",
+        "game": "Meccha Chameleon",
+        "caption": "It was sucha good hiding spot too...",
+        "url": "https://www.tiktok.com/@alco_live/video/7652981993793162527",
+        "creator": "@alco_live",
+        "views": "277.8K",
+        "viewsValue": 277800.0,
+        "posted": "9 days ago",
+        "postedAt": "2026-06-19T05:59:12+00:00",
+        "status": "NEW"
+      },
+      {
+        "bucket": "#friendslop",
+        "game": "Meccha Chameleon",
+        "caption": "You need BALLS OF STEEL to pull...",
+        "url": "https://www.tiktok.com/@2angrygamers/video/7652821295205338390",
+        "creator": "@2angrygamers",
+        "views": "64.6K",
+        "viewsValue": 64600.0,
+        "posted": "9 days ago",
+        "postedAt": "2026-06-18T19:35:14+00:00",
+        "status": "NEW"
+      }
+    ],
+    "signals": [
+      "MECCHA CHAMELEON \u2022 7 creators",
+      "Grow a Garden \u2022 1 creators"
+    ]
+  },
   "rows": [
     {
       "key": "statbot:4872",
@@ -519,8 +737,8 @@
       "rank": 1,
       "url": "https://store.steampowered.com/app/4704690/",
       "gameId": "4704690",
-      "currentMetric": "189,674 players",
-      "currentMetricValue": 189674.0,
+      "currentMetric": "193,745 players",
+      "currentMetricValue": 193745.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -535,8 +753,8 @@
       "rank": 2,
       "url": "https://store.steampowered.com/app/730/",
       "gameId": "730",
-      "currentMetric": "1,135,365 players",
-      "currentMetricValue": 1135365.0,
+      "currentMetric": "1,130,161 players",
+      "currentMetricValue": 1130161.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc1",
       "deltaValue": -1.0,
@@ -551,8 +769,8 @@
       "rank": 3,
       "url": "https://store.steampowered.com/app/2767030/",
       "gameId": "2767030",
-      "currentMetric": "78,150 players",
-      "currentMetricValue": 78150.0,
+      "currentMetric": "88,582 players",
+      "currentMetricValue": 88582.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -583,8 +801,8 @@
       "rank": 5,
       "url": "https://store.steampowered.com/app/381210/",
       "gameId": "381210",
-      "currentMetric": "118,254 players",
-      "currentMetricValue": 118254.0,
+      "currentMetric": "123,440 players",
+      "currentMetricValue": 123440.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -599,8 +817,8 @@
       "rank": 6,
       "url": "https://store.steampowered.com/app/230410/",
       "gameId": "230410",
-      "currentMetric": "74,230 players",
-      "currentMetricValue": 74230.0,
+      "currentMetric": "71,584 players",
+      "currentMetricValue": 71584.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -631,8 +849,8 @@
       "rank": 8,
       "url": "https://store.steampowered.com/app/1091500/",
       "gameId": "1091500",
-      "currentMetric": "70,956 players",
-      "currentMetricValue": 70956.0,
+      "currentMetric": "64,148 players",
+      "currentMetricValue": 64148.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -647,8 +865,8 @@
       "rank": 9,
       "url": "https://store.steampowered.com/app/2694490/",
       "gameId": "2694490",
-      "currentMetric": "165,242 players",
-      "currentMetricValue": 165242.0,
+      "currentMetric": "165,320 players",
+      "currentMetricValue": 165320.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc4",
       "deltaValue": -4.0,
@@ -663,8 +881,8 @@
       "rank": 10,
       "url": "https://store.steampowered.com/app/2483190/",
       "gameId": "2483190",
-      "currentMetric": "53,924 players",
-      "currentMetricValue": 53924.0,
+      "currentMetric": "51,659 players",
+      "currentMetricValue": 51659.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc7",
       "deltaValue": -7.0,
@@ -2703,7 +2921,7 @@
       {
         "date": "2026-06-22",
         "rank": 1,
-        "metric": 189674.0,
+        "metric": 193745.0,
         "metricLabel": "players",
         "isNew": true
       }
@@ -2803,7 +3021,7 @@
       {
         "date": "2026-06-22",
         "rank": 2,
-        "metric": 1135365.0,
+        "metric": 1130161.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2889,7 +3107,7 @@
       {
         "date": "2026-06-22",
         "rank": 3,
-        "metric": 78150.0,
+        "metric": 88582.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2928,7 +3146,7 @@
       {
         "date": "2026-06-22",
         "rank": 5,
-        "metric": 118254.0,
+        "metric": 123440.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2979,7 +3197,7 @@
       {
         "date": "2026-06-22",
         "rank": 6,
-        "metric": 74230.0,
+        "metric": 71584.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3011,7 +3229,7 @@
       {
         "date": "2026-06-22",
         "rank": 8,
-        "metric": 70956.0,
+        "metric": 64148.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3034,7 +3252,7 @@
       {
         "date": "2026-06-22",
         "rank": 9,
-        "metric": 165242.0,
+        "metric": 165320.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3092,7 +3310,7 @@
       {
         "date": "2026-06-22",
         "rank": 10,
-        "metric": 53924.0,
+        "metric": 51659.0,
         "metricLabel": "players",
         "isNew": false
       }
