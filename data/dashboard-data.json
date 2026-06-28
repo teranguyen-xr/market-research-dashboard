@@ -1,0 +1,3664 @@
+{
+  "generatedAt": "2026-06-28T12:35:08.756675",
+  "latestSnapshotDate": "2026-06-22",
+  "cards": [
+    {
+      "id": "steam",
+      "title": "Top selling games",
+      "game": "MECCHA CHAMELEON",
+      "platformLabel": "Steam",
+      "currentMetric": "203,914 players",
+      "delta": "n/a",
+      "url": "https://store.steampowered.com/app/4704690/"
+    },
+    {
+      "id": "twitch",
+      "title": "Streamers are playing",
+      "game": "Just Chatting",
+      "platformLabel": "Twitch",
+      "currentMetric": "281,092 viewers",
+      "delta": "-20,473",
+      "url": "https://twitchtracker.com/games/509658"
+    },
+    {
+      "id": "statbot",
+      "title": "AC players are playing",
+      "game": "Roblox",
+      "platformLabel": "AC Discord",
+      "currentMetric": "291,492.2 hours",
+      "delta": "+19,567.6",
+      "url": ""
+    }
+  ],
+  "rows": [
+    {
+      "key": "statbot:4872",
+      "title": "Roblox",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 1,
+      "url": "",
+      "gameId": "4872",
+      "currentMetric": "291,492.2 hours",
+      "currentMetricValue": 291492.2,
+      "metricLabel": "hours",
+      "delta": "+19,567.6",
+      "deltaValue": 19567.600000000035,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:2",
+      "title": "Fortnite",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 2,
+      "url": "",
+      "gameId": "2",
+      "currentMetric": "25,863.9 hours",
+      "currentMetricValue": 25863.9,
+      "metricLabel": "hours",
+      "delta": "+1,768.9",
+      "deltaValue": 1768.9000000000015,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:5389",
+      "title": "Roblox - Xbox",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 3,
+      "url": "",
+      "gameId": "5389",
+      "currentMetric": "22,183.8 hours",
+      "currentMetricValue": 22183.8,
+      "metricLabel": "hours",
+      "delta": "+0.0",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:308",
+      "title": "Geometry Dash",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 4,
+      "url": "",
+      "gameId": "308",
+      "currentMetric": "15,102.7 hours",
+      "currentMetricValue": 15102.7,
+      "metricLabel": "hours",
+      "delta": "+714.3",
+      "deltaValue": 714.3000000000011,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:6",
+      "title": "Minecraft",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 5,
+      "url": "",
+      "gameId": "6",
+      "currentMetric": "6,508.5 hours",
+      "currentMetricValue": 6508.5,
+      "metricLabel": "hours",
+      "delta": "+0.0",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:30",
+      "title": "Rocket League",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 6,
+      "url": "",
+      "gameId": "30",
+      "currentMetric": "5,989.9 hours",
+      "currentMetricValue": 5989.9,
+      "metricLabel": "hours",
+      "delta": "+476.0",
+      "deltaValue": 476.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:7",
+      "title": "Rainbow Six Siege",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 7,
+      "url": "",
+      "gameId": "7",
+      "currentMetric": "5,809.8 hours",
+      "currentMetricValue": 5809.8,
+      "metricLabel": "hours",
+      "delta": "+372.2",
+      "deltaValue": 372.1999999999998,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:458",
+      "title": "Rocket League\u00ae",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 8,
+      "url": "",
+      "gameId": "458",
+      "currentMetric": "5,089.8 hours",
+      "currentMetricValue": 5089.8,
+      "metricLabel": "hours",
+      "delta": "+0.0",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:4753",
+      "title": "Call of Duty\u00ae",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 9,
+      "url": "",
+      "gameId": "4753",
+      "currentMetric": "4,747.3 hours",
+      "currentMetricValue": 4747.3,
+      "metricLabel": "hours",
+      "delta": "+314.3",
+      "deltaValue": 314.3000000000002,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:42",
+      "title": "Tom Clancy's Rainbow Six Siege",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 10,
+      "url": "",
+      "gameId": "42",
+      "currentMetric": "3,929.1 hours",
+      "currentMetricValue": 3929.1,
+      "metricLabel": "hours",
+      "delta": "+561.6",
+      "deltaValue": 561.5999999999999,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:4683",
+      "title": "Tom Clancy's Rainbow Six\u00ae Siege",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 11,
+      "url": "",
+      "gameId": "4683",
+      "currentMetric": "3,134.6 hours",
+      "currentMetricValue": 3134.6,
+      "metricLabel": "hours",
+      "delta": "+0.5",
+      "deltaValue": 0.5,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:5349",
+      "title": "NBA 2K26",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 12,
+      "url": "",
+      "gameId": "5349",
+      "currentMetric": "2,707.2 hours",
+      "currentMetricValue": 2707.2,
+      "metricLabel": "hours",
+      "delta": "+181.7",
+      "deltaValue": 181.69999999999982,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:142",
+      "title": "Garry's Mod",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 13,
+      "url": "",
+      "gameId": "142",
+      "currentMetric": "2,689.5 hours",
+      "currentMetricValue": 2689.5,
+      "metricLabel": "hours",
+      "delta": "+187.9",
+      "deltaValue": 187.9000000000001,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:5396",
+      "title": "ARC Raiders",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 14,
+      "url": "",
+      "gameId": "5396",
+      "currentMetric": "2,503.9 hours",
+      "currentMetricValue": 2503.9,
+      "metricLabel": "hours",
+      "delta": "+73.2",
+      "deltaValue": 73.20000000000027,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:4776",
+      "title": "Counter-Strike 2",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 15,
+      "url": "",
+      "gameId": "4776",
+      "currentMetric": "2,497.2 hours",
+      "currentMetricValue": 2497.2,
+      "metricLabel": "hours",
+      "delta": "+128.1",
+      "deltaValue": 128.0999999999999,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:4597",
+      "title": "skate.",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 16,
+      "url": "",
+      "gameId": "4597",
+      "currentMetric": "2,399.6 hours",
+      "currentMetricValue": 2399.6,
+      "metricLabel": "hours",
+      "delta": "+20.7",
+      "deltaValue": 20.699999999999818,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:91",
+      "title": "Rust",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 17,
+      "url": "",
+      "gameId": "91",
+      "currentMetric": "2,380.1 hours",
+      "currentMetricValue": 2380.1,
+      "metricLabel": "hours",
+      "delta": "+186.4",
+      "deltaValue": 186.4000000000001,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:4714",
+      "title": "Grand Theft Auto V (Xbox One)",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 18,
+      "url": "",
+      "gameId": "4714",
+      "currentMetric": "2,211.5 hours",
+      "currentMetricValue": 2211.5,
+      "metricLabel": "hours",
+      "delta": "+105.1",
+      "deltaValue": 105.09999999999991,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:19",
+      "title": "VRChat",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 19,
+      "url": "",
+      "gameId": "19",
+      "currentMetric": "2,180.0 hours",
+      "currentMetricValue": 2180.0,
+      "metricLabel": "hours",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "statbot:5306",
+      "title": "Tom Clancy's Rainbow Six Siege X",
+      "platform": "statbot",
+      "platformLabel": "AC Discord",
+      "rank": 20,
+      "url": "",
+      "gameId": "5306",
+      "currentMetric": "2,168.9 hours",
+      "currentMetricValue": 2168.9,
+      "metricLabel": "hours",
+      "delta": "+0.0",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:4924922222",
+      "title": "Brookhaven \ud83c\udfe1RP",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 1,
+      "url": "https://www.roblox.com/games/4924922222",
+      "gameId": "4924922222",
+      "currentMetric": "583,847 CCU",
+      "currentMetricValue": 583847.0,
+      "metricLabel": "ccu",
+      "delta": "Rank =",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:920587237",
+      "title": "[\ud83c\udfa3] Adopt Me!",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 2,
+      "url": "https://www.roblox.com/games/920587237",
+      "gameId": "920587237",
+      "currentMetric": "407,387 CCU",
+      "currentMetricValue": 407387.0,
+      "metricLabel": "ccu",
+      "delta": "Rank =",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:2753915549",
+      "title": "Blox Fruits",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 3,
+      "url": "https://www.roblox.com/games/2753915549",
+      "gameId": "2753915549",
+      "currentMetric": "207,216 CCU",
+      "currentMetricValue": 207216.0,
+      "metricLabel": "ccu",
+      "delta": "Rank =",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:93862983804718",
+      "title": "Brainrot Laboratory",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 4,
+      "url": "https://www.roblox.com/games/93862983804718",
+      "gameId": "93862983804718",
+      "currentMetric": "64,255 CCU",
+      "currentMetricValue": 64255.0,
+      "metricLabel": "ccu",
+      "delta": "Rank \u25b22",
+      "deltaValue": 2.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:128162281427558",
+      "title": "Rob a Latamrot",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 5,
+      "url": "https://www.roblox.com/games/128162281427558",
+      "gameId": "128162281427558",
+      "currentMetric": "62,445 CCU",
+      "currentMetricValue": 62445.0,
+      "metricLabel": "ccu",
+      "delta": "Rank \u25b22",
+      "deltaValue": 2.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:83696345967468",
+      "title": "(\ud83e\udd11FREE) Steal The Brainrat Modded",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 6,
+      "url": "https://www.roblox.com/games/83696345967468",
+      "gameId": "83696345967468",
+      "currentMetric": "54,450 CCU",
+      "currentMetricValue": 54450.0,
+      "metricLabel": "ccu",
+      "delta": "Rank \u25b23",
+      "deltaValue": 3.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:5233782396",
+      "title": "\ud83c\udf0a Creatures of Sonaria \u2728 Survive Kaiju Animals",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 7,
+      "url": "https://www.roblox.com/games/5233782396",
+      "gameId": "5233782396",
+      "currentMetric": "44,173 CCU",
+      "currentMetricValue": 44173.0,
+      "metricLabel": "ccu",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:88887649357302",
+      "title": "\ud83c\udf08 Murder Mystery V",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 8,
+      "url": "https://www.roblox.com/games/88887649357302",
+      "gameId": "88887649357302",
+      "currentMetric": "48,808 CCU",
+      "currentMetricValue": 48808.0,
+      "metricLabel": "ccu",
+      "delta": "Rank \u25b22",
+      "deltaValue": 2.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:89554895881519",
+      "title": "\ud83c\udf38 NEW GAME",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 9,
+      "url": "https://www.roblox.com/games/89554895881519",
+      "gameId": "89554895881519",
+      "currentMetric": "45,501 CCU",
+      "currentMetricValue": 45501.0,
+      "metricLabel": "ccu",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "roblox:80681221431821",
+      "title": "[LAST DAY | STRESS TEST 2 \ud83d\udea7] Practical Basketball",
+      "platform": "roblox",
+      "platformLabel": "Roblox",
+      "rank": 10,
+      "url": "https://www.roblox.com/games/80681221431821",
+      "gameId": "80681221431821",
+      "currentMetric": "44,293 CCU",
+      "currentMetricValue": 44293.0,
+      "metricLabel": "ccu",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:4704690",
+      "title": "MECCHA CHAMELEON",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 1,
+      "url": "https://store.steampowered.com/app/4704690/",
+      "gameId": "4704690",
+      "currentMetric": "203,914 players",
+      "currentMetricValue": 203914.0,
+      "metricLabel": "players",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:730",
+      "title": "Counter-Strike 2",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 2,
+      "url": "https://store.steampowered.com/app/730/",
+      "gameId": "730",
+      "currentMetric": "1,182,224 players",
+      "currentMetricValue": 1182224.0,
+      "metricLabel": "players",
+      "delta": "Rank \u25bc1",
+      "deltaValue": -1.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:2767030",
+      "title": "Marvel Rivals",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 3,
+      "url": "https://store.steampowered.com/app/2767030/",
+      "gameId": "2767030",
+      "currentMetric": "74,102 players",
+      "currentMetricValue": 74102.0,
+      "metricLabel": "players",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:1675200",
+      "title": "Steam Deck",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 4,
+      "url": "https://store.steampowered.com/app/1675200/",
+      "gameId": "1675200",
+      "currentMetric": "0 players",
+      "currentMetricValue": 0.0,
+      "metricLabel": "players",
+      "delta": "Rank =",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:381210",
+      "title": "Dead by Daylight",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 5,
+      "url": "https://store.steampowered.com/app/381210/",
+      "gameId": "381210",
+      "currentMetric": "117,950 players",
+      "currentMetricValue": 117950.0,
+      "metricLabel": "players",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:230410",
+      "title": "Warframe",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 6,
+      "url": "https://store.steampowered.com/app/230410/",
+      "gameId": "230410",
+      "currentMetric": "75,964 players",
+      "currentMetricValue": 75964.0,
+      "metricLabel": "players",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:4165870",
+      "title": "Steam Controller",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 7,
+      "url": "https://store.steampowered.com/app/4165870/",
+      "gameId": "4165870",
+      "currentMetric": "0 players",
+      "currentMetricValue": 0.0,
+      "metricLabel": "players",
+      "delta": "Rank =",
+      "deltaValue": 0.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:1091500",
+      "title": "Cyberpunk 2077",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 8,
+      "url": "https://store.steampowered.com/app/1091500/",
+      "gameId": "1091500",
+      "currentMetric": "74,830 players",
+      "currentMetricValue": 74830.0,
+      "metricLabel": "players",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:2694490",
+      "title": "Path of Exile 2",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 9,
+      "url": "https://store.steampowered.com/app/2694490/",
+      "gameId": "2694490",
+      "currentMetric": "165,450 players",
+      "currentMetricValue": 165450.0,
+      "metricLabel": "players",
+      "delta": "Rank \u25bc4",
+      "deltaValue": -4.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "steam:2483190",
+      "title": "Forza Horizon 6",
+      "platform": "steam",
+      "platformLabel": "Steam",
+      "rank": 10,
+      "url": "https://store.steampowered.com/app/2483190/",
+      "gameId": "2483190",
+      "currentMetric": "56,488 players",
+      "currentMetricValue": 56488.0,
+      "metricLabel": "players",
+      "delta": "Rank \u25bc7",
+      "deltaValue": -7.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:509658",
+      "title": "Just Chatting",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 1,
+      "url": "https://twitchtracker.com/games/509658",
+      "gameId": "509658",
+      "currentMetric": "281,092 viewers",
+      "currentMetricValue": 281092.0,
+      "metricLabel": "viewers",
+      "delta": "-20,473",
+      "deltaValue": -20473.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:32399",
+      "title": "Counter-Strike",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 2,
+      "url": "https://twitchtracker.com/games/32399",
+      "gameId": "32399",
+      "currentMetric": "178,515 viewers",
+      "currentMetricValue": 178515.0,
+      "metricLabel": "viewers",
+      "delta": "+71,752",
+      "deltaValue": 71752.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:21779",
+      "title": "League of Legends",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 3,
+      "url": "https://twitchtracker.com/games/21779",
+      "gameId": "21779",
+      "currentMetric": "92,296 viewers",
+      "currentMetricValue": 92296.0,
+      "metricLabel": "viewers",
+      "delta": "-21,388",
+      "deltaValue": -21388.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:32982",
+      "title": "Grand Theft Auto V",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 4,
+      "url": "https://twitchtracker.com/games/32982",
+      "gameId": "32982",
+      "currentMetric": "67,787 viewers",
+      "currentMetricValue": 67787.0,
+      "metricLabel": "viewers",
+      "delta": "-9,040",
+      "deltaValue": -9040.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:509672",
+      "title": "IRL",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 5,
+      "url": "https://twitchtracker.com/games/509672",
+      "gameId": "509672",
+      "currentMetric": "65,329 viewers",
+      "currentMetricValue": 65329.0,
+      "metricLabel": "viewers",
+      "delta": "+9,148",
+      "deltaValue": 9148.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:516575",
+      "title": "VALORANT",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 6,
+      "url": "https://twitchtracker.com/games/516575",
+      "gameId": "516575",
+      "currentMetric": "64,084 viewers",
+      "currentMetricValue": 64084.0,
+      "metricLabel": "viewers",
+      "delta": "+11,626",
+      "deltaValue": 11626.0,
+      "isNew": false,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:515025",
+      "title": "Overwatch",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 7,
+      "url": "https://twitchtracker.com/games/515025",
+      "gameId": "515025",
+      "currentMetric": "55,217 viewers",
+      "currentMetricValue": 55217.0,
+      "metricLabel": "viewers",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:1820839024",
+      "title": "MECCHA CHAMELEON",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 8,
+      "url": "https://twitchtracker.com/games/1820839024",
+      "gameId": "1820839024",
+      "currentMetric": "49,638 viewers",
+      "currentMetricValue": 49638.0,
+      "metricLabel": "viewers",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:33214",
+      "title": "Fortnite",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 9,
+      "url": "https://twitchtracker.com/games/33214",
+      "gameId": "33214",
+      "currentMetric": "44,421 viewers",
+      "currentMetricValue": 44421.0,
+      "metricLabel": "viewers",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    },
+    {
+      "key": "twitch:491487",
+      "title": "Dead by Daylight",
+      "platform": "twitch",
+      "platformLabel": "Twitch",
+      "rank": 10,
+      "url": "https://twitchtracker.com/games/491487",
+      "gameId": "491487",
+      "currentMetric": "41,031 viewers",
+      "currentMetricValue": 41031.0,
+      "metricLabel": "viewers",
+      "delta": "n/a",
+      "deltaValue": null,
+      "isNew": true,
+      "snapshotDate": "2026-06-22"
+    }
+  ],
+  "histories": {
+    "statbot:4872": [
+      {
+        "date": "2026-04-06",
+        "rank": 1,
+        "metric": 198708.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 1,
+        "metric": 206276.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 1,
+        "metric": 213604.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 1,
+        "metric": 228282.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 1,
+        "metric": 236478.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 1,
+        "metric": 244956.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 1,
+        "metric": 253731.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 1,
+        "metric": 263065.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 1,
+        "metric": 271924.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 1,
+        "metric": 291492.2,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:2": [
+      {
+        "date": "2026-04-06",
+        "rank": 2,
+        "metric": 20467.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 2,
+        "metric": 21065.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 2,
+        "metric": 21632.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 2,
+        "metric": 22453.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 2,
+        "metric": 22730.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 2,
+        "metric": 22984.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 2,
+        "metric": 23251.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 2,
+        "metric": 23582.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 2,
+        "metric": 24095.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 2,
+        "metric": 25863.9,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:5389": [
+      {
+        "date": "2026-04-06",
+        "rank": 3,
+        "metric": 19687.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 3,
+        "metric": 20537.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 3,
+        "metric": 21290.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 3,
+        "metric": 22183.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 3,
+        "metric": 22183.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 3,
+        "metric": 22183.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 3,
+        "metric": 22183.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 3,
+        "metric": 22183.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 3,
+        "metric": 22183.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 3,
+        "metric": 22183.8,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:308": [
+      {
+        "date": "2026-04-06",
+        "rank": 4,
+        "metric": 10238.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 4,
+        "metric": 10754.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 4,
+        "metric": 11276.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 4,
+        "metric": 12273.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 4,
+        "metric": 12740.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 4,
+        "metric": 13158.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 4,
+        "metric": 13572.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 4,
+        "metric": 13993.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 4,
+        "metric": 14388.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 4,
+        "metric": 15102.7,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:6": [
+      {
+        "date": "2026-04-06",
+        "rank": 5,
+        "metric": 5888.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 5,
+        "metric": 6108.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 5,
+        "metric": 6294.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 5,
+        "metric": 6508.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 5,
+        "metric": 6508.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 5,
+        "metric": 6508.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 5,
+        "metric": 6508.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 5,
+        "metric": 6508.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 5,
+        "metric": 6508.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 5,
+        "metric": 6508.5,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:30": [
+      {
+        "date": "2026-04-06",
+        "rank": 8,
+        "metric": 3600.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 8,
+        "metric": 3787.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 8,
+        "metric": 3959.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 8,
+        "metric": 4293.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 8,
+        "metric": 4524.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 8,
+        "metric": 4777.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 7,
+        "metric": 5035.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 6,
+        "metric": 5292.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 6,
+        "metric": 5513.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 6,
+        "metric": 5989.9,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:7": [
+      {
+        "date": "2026-04-06",
+        "rank": 7,
+        "metric": 3621.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 7,
+        "metric": 3839.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 7,
+        "metric": 4058.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 7,
+        "metric": 4446.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 7,
+        "metric": 4645.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 7,
+        "metric": 4828.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 8,
+        "metric": 5002.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 7,
+        "metric": 5190.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 7,
+        "metric": 5437.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 7,
+        "metric": 5809.8,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:458": [
+      {
+        "date": "2026-04-06",
+        "rank": 6,
+        "metric": 4394.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 6,
+        "metric": 4614.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 6,
+        "metric": 4793.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 6,
+        "metric": 5045.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 6,
+        "metric": 5089.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 6,
+        "metric": 5089.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 6,
+        "metric": 5089.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 8,
+        "metric": 5089.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 8,
+        "metric": 5089.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 8,
+        "metric": 5089.8,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:4753": [
+      {
+        "date": "2026-04-06",
+        "rank": 9,
+        "metric": 3547.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 9,
+        "metric": 3646.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 9,
+        "metric": 3751.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 9,
+        "metric": 3938.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 9,
+        "metric": 4040.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 9,
+        "metric": 4155.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 9,
+        "metric": 4245.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 9,
+        "metric": 4346.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 9,
+        "metric": 4433.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 9,
+        "metric": 4747.3,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:42": [
+      {
+        "date": "2026-04-20",
+        "rank": 19,
+        "metric": 1705.4,
+        "metricLabel": "hours",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 16,
+        "metric": 2034.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 13,
+        "metric": 2251.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 11,
+        "metric": 2502.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 11,
+        "metric": 2748.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 11,
+        "metric": 3008.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 10,
+        "metric": 3367.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 10,
+        "metric": 3929.1,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:4683": [
+      {
+        "date": "2026-04-06",
+        "rank": 10,
+        "metric": 2561.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 10,
+        "metric": 2708.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 10,
+        "metric": 2840.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 10,
+        "metric": 3069.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 10,
+        "metric": 3132.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 10,
+        "metric": 3132.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 10,
+        "metric": 3133.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 10,
+        "metric": 3133.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 11,
+        "metric": 3134.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 11,
+        "metric": 3134.6,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:5349": [
+      {
+        "date": "2026-04-06",
+        "rank": 15,
+        "metric": 1826.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 15,
+        "metric": 1910.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 15,
+        "metric": 1978.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 15,
+        "metric": 2116.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 15,
+        "metric": 2181.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 15,
+        "metric": 2258.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 14,
+        "metric": 2340.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 12,
+        "metric": 2430.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 12,
+        "metric": 2525.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 12,
+        "metric": 2707.2,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:142": [
+      {
+        "date": "2026-04-06",
+        "rank": 14,
+        "metric": 1879.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 14,
+        "metric": 1942.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 14,
+        "metric": 2008.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 14,
+        "metric": 2142.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 14,
+        "metric": 2207.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 14,
+        "metric": 2267.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 15,
+        "metric": 2333.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 13,
+        "metric": 2414.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 13,
+        "metric": 2501.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 13,
+        "metric": 2689.5,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:5396": [
+      {
+        "date": "2026-04-06",
+        "rank": 13,
+        "metric": 2031.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 13,
+        "metric": 2086.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 13,
+        "metric": 2131.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 12,
+        "metric": 2213.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 12,
+        "metric": 2255.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 13,
+        "metric": 2302.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 13,
+        "metric": 2347.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 14,
+        "metric": 2389.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 14,
+        "metric": 2430.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 14,
+        "metric": 2503.9,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:4776": [
+      {
+        "date": "2026-04-06",
+        "rank": 18,
+        "metric": 1705.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 18,
+        "metric": 1790.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 16,
+        "metric": 1877.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 17,
+        "metric": 2025.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 17,
+        "metric": 2097.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 17,
+        "metric": 2165.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 16,
+        "metric": 2230.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 16,
+        "metric": 2302.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 16,
+        "metric": 2369.1,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 15,
+        "metric": 2497.2,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:4597": [
+      {
+        "date": "2026-04-06",
+        "rank": 11,
+        "metric": 2271.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 11,
+        "metric": 2281.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 11,
+        "metric": 2294.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 11,
+        "metric": 2316.3,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 11,
+        "metric": 2327.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 12,
+        "metric": 2341.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 12,
+        "metric": 2354.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 15,
+        "metric": 2365.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 15,
+        "metric": 2378.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 16,
+        "metric": 2399.6,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:91": [
+      {
+        "date": "2026-04-06",
+        "rank": 20,
+        "metric": 1502.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 20,
+        "metric": 1582.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 20,
+        "metric": 1794.1,
+        "metricLabel": "hours",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 20,
+        "metric": 1873.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 19,
+        "metric": 1948.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 18,
+        "metric": 2021.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 18,
+        "metric": 2107.8,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 17,
+        "metric": 2193.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 17,
+        "metric": 2380.1,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:4714": [
+      {
+        "date": "2026-04-06",
+        "rank": 16,
+        "metric": 1765.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 16,
+        "metric": 1817.7,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 18,
+        "metric": 1861.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 18,
+        "metric": 1922.5,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 18,
+        "metric": 1953.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 18,
+        "metric": 1983.0,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 19,
+        "metric": 2018.6,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 19,
+        "metric": 2060.2,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 19,
+        "metric": 2106.4,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 18,
+        "metric": 2211.5,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "statbot:19": [
+      {
+        "date": "2026-06-22",
+        "rank": 19,
+        "metric": 2180.0,
+        "metricLabel": "hours",
+        "isNew": true
+      }
+    ],
+    "statbot:5306": [
+      {
+        "date": "2026-04-06",
+        "rank": 12,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 12,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 12,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 13,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 16,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 16,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 17,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 17,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 18,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 20,
+        "metric": 2168.9,
+        "metricLabel": "hours",
+        "isNew": false
+      }
+    ],
+    "roblox:4924922222": [
+      {
+        "date": "2026-03-15",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-16",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-23",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-30",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 1,
+        "metric": 583847.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:920587237": [
+      {
+        "date": "2026-03-15",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-16",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-23",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-30",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 2,
+        "metric": 407387.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:2753915549": [
+      {
+        "date": "2026-03-15",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-16",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-23",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-30",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 4,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 4,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 3,
+        "metric": 207216.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:93862983804718": [
+      {
+        "date": "2026-05-04",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 4,
+        "metric": 64255.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:128162281427558": [
+      {
+        "date": "2026-05-04",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 5,
+        "metric": 62445.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:83696345967468": [
+      {
+        "date": "2026-05-04",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 6,
+        "metric": 54450.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:5233782396": [
+      {
+        "date": "2026-06-22",
+        "rank": 7,
+        "metric": 44173.0,
+        "metricLabel": "ccu",
+        "isNew": true
+      }
+    ],
+    "roblox:88887649357302": [
+      {
+        "date": "2026-05-18",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 8,
+        "metric": 48808.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:89554895881519": [
+      {
+        "date": "2026-05-18",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 9,
+        "metric": 45501.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "roblox:80681221431821": [
+      {
+        "date": "2026-05-18",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "ccu",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 10,
+        "metric": 44293.0,
+        "metricLabel": "ccu",
+        "isNew": false
+      }
+    ],
+    "steam:4704690": [
+      {
+        "date": "2026-06-22",
+        "rank": 1,
+        "metric": 203914.0,
+        "metricLabel": "players",
+        "isNew": true
+      }
+    ],
+    "steam:730": [
+      {
+        "date": "2026-03-15",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-16",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-23",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-30",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 1,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 2,
+        "metric": 1182224.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:2767030": [
+      {
+        "date": "2026-03-15",
+        "rank": 15,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-16",
+        "rank": 14,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-23",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-03-30",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 4,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 9,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 3,
+        "metric": 74102.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:1675200": [
+      {
+        "date": "2026-06-01",
+        "rank": 4,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 4,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 4,
+        "metric": 0.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:381210": [
+      {
+        "date": "2026-03-30",
+        "rank": 15,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 5,
+        "metric": 117950.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:230410": [
+      {
+        "date": "2026-03-30",
+        "rank": 6,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-04-06",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 6,
+        "metric": 75964.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:4165870": [
+      {
+        "date": "2026-06-08",
+        "rank": 7,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 7,
+        "metric": 0.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:1091500": [
+      {
+        "date": "2026-03-23",
+        "rank": 10,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 8,
+        "metric": 74830.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:2694490": [
+      {
+        "date": "2026-06-01",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 9,
+        "metric": 165450.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "steam:2483190": [
+      {
+        "date": "2026-04-13",
+        "rank": 8,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 5,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 2,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 3,
+        "metric": null,
+        "metricLabel": "players",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 10,
+        "metric": 56488.0,
+        "metricLabel": "players",
+        "isNew": false
+      }
+    ],
+    "twitch:509658": [
+      {
+        "date": "2026-04-06",
+        "rank": 1,
+        "metric": 313888.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 1,
+        "metric": 315655.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 1,
+        "metric": 300882.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 1,
+        "metric": 298916.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 1,
+        "metric": 316196.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 1,
+        "metric": 315708.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 1,
+        "metric": 319794.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 1,
+        "metric": 292759.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 1,
+        "metric": 301565.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 1,
+        "metric": 281092.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:32399": [
+      {
+        "date": "2026-04-06",
+        "rank": 4,
+        "metric": 79004.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 4,
+        "metric": 76229.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 2,
+        "metric": 118722.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 3,
+        "metric": 90256.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 5,
+        "metric": 73628.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 2,
+        "metric": 152063.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 5,
+        "metric": 73031.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 5,
+        "metric": 62905.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 3,
+        "metric": 106763.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 2,
+        "metric": 178515.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:21779": [
+      {
+        "date": "2026-04-06",
+        "rank": 2,
+        "metric": 96866.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 2,
+        "metric": 98794.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 3,
+        "metric": 91781.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 2,
+        "metric": 109447.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 2,
+        "metric": 136182.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 3,
+        "metric": 150273.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 2,
+        "metric": 120253.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 2,
+        "metric": 125729.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 2,
+        "metric": 113684.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 3,
+        "metric": 92296.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:32982": [
+      {
+        "date": "2026-04-06",
+        "rank": 3,
+        "metric": 91991.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 3,
+        "metric": 93087.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 4,
+        "metric": 87527.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 4,
+        "metric": 83141.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 3,
+        "metric": 88395.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 4,
+        "metric": 92431.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 3,
+        "metric": 82522.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 3,
+        "metric": 78987.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 4,
+        "metric": 76827.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 4,
+        "metric": 67787.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:509672": [
+      {
+        "date": "2026-04-06",
+        "rank": 8,
+        "metric": 39053.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 10,
+        "metric": 41760.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 7,
+        "metric": 51358.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 4,
+        "metric": 76019.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 6,
+        "metric": 64954.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 8,
+        "metric": 55335.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 8,
+        "metric": 55912.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 7,
+        "metric": 56181.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 5,
+        "metric": 65329.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:516575": [
+      {
+        "date": "2026-04-06",
+        "rank": 6,
+        "metric": 65950.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 5,
+        "metric": 62032.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 5,
+        "metric": 60293.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 5,
+        "metric": 65060.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 6,
+        "metric": 70093.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 5,
+        "metric": 70366.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 6,
+        "metric": 61266.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 10,
+        "metric": 53708.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-08",
+        "rank": 9,
+        "metric": 52458.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 6,
+        "metric": 64084.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      }
+    ],
+    "twitch:515025": [
+      {
+        "date": "2026-04-06",
+        "rank": 7,
+        "metric": 42411.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 6,
+        "metric": 54641.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 6,
+        "metric": 50570.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 10,
+        "metric": 34398.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 7,
+        "metric": 60474.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 7,
+        "metric": 55217.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      }
+    ],
+    "twitch:1820839024": [
+      {
+        "date": "2026-06-22",
+        "rank": 8,
+        "metric": 49638.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      }
+    ],
+    "twitch:33214": [
+      {
+        "date": "2026-04-06",
+        "rank": 9,
+        "metric": 38842.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-13",
+        "rank": 10,
+        "metric": 39538.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-04-20",
+        "rank": 8,
+        "metric": 46234.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-04",
+        "rank": 6,
+        "metric": 59991.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-11",
+        "rank": 8,
+        "metric": 43192.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-05-18",
+        "rank": 9,
+        "metric": 46748.0,
+        "metricLabel": "viewers",
+        "isNew": false
+      },
+      {
+        "date": "2026-06-01",
+        "rank": 7,
+        "metric": 59461.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      },
+      {
+        "date": "2026-06-22",
+        "rank": 9,
+        "metric": 44421.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      }
+    ],
+    "twitch:491487": [
+      {
+        "date": "2026-06-22",
+        "rank": 10,
+        "metric": 41031.0,
+        "metricLabel": "viewers",
+        "isNew": true
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "statbot",
+      "label": "AC Discord"
+    },
+    {
+      "id": "roblox",
+      "label": "Roblox"
+    },
+    {
+      "id": "steam",
+      "label": "Steam"
+    },
+    {
+      "id": "twitch",
+      "label": "Twitch"
+    }
+  ]
+}

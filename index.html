@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Games Market Research Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Market Research Dashboard</p>
+          <h1>Next Hit Game Tracker</h1>
+          <p class="hero-copy">A faster way to spot what is converting, what creators are amplifying, and what AC players are actually adopting over time.</p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-card">
+            <span class="meta-label">Latest Snapshot</span>
+            <strong id="latestSnapshot">-</strong>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Dashboard Generated</span>
+            <strong id="generatedAt">-</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="cards-section">
+        <div class="section-header">
+          <h2>Summary Cards</h2>
+          <p>Current leaders in selling, streaming, and AC player adoption.</p>
+        </div>
+        <div class="summary-cards" id="summaryCards"></div>
+      </section>
+
+      <section class="controls-section">
+        <div class="section-header compact">
+          <h2>Trend Explorer</h2>
+          <p>Search, sort, and click a row to inspect its movement over time.</p>
+        </div>
+        <div class="controls-row">
+          <label class="search-box">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Search games, platforms, tags">
+          </label>
+          <label class="filter-box">
+            <span>Platform</span>
+            <select id="platformFilter">
+              <option value="all">All</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="panel chart-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Selected Game</p>
+              <h3 id="chartTitle">Choose a game row</h3>
+            </div>
+            <div class="metric-toggle">
+              <button class="toggle is-active" data-chart-mode="rank">Rank</button>
+              <button class="toggle" data-chart-mode="metric">Metric</button>
+            </div>
+          </div>
+          <div class="chart-area">
+            <svg id="trendChart" viewBox="0 0 760 320" preserveAspectRatio="none"></svg>
+            <div class="empty-chart" id="chartEmpty">Select a row to see movement over time.</div>
+          </div>
+          <div class="chart-footnote" id="chartFootnote"></div>
+        </div>
+
+        <div class="panel table-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Latest Snapshot Table</p>
+              <h3>Sortable Game Table</h3>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-sort="title">Game Title</th>
+                  <th data-sort="platformLabel">Platform</th>
+                  <th data-sort="rank">Rank</th>
+                  <th data-sort="currentMetricValue">Current Metric</th>
+                  <th data-sort="deltaValue">Delta vs Previous Snapshot</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
