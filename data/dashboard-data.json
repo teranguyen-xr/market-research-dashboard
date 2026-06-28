@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T12:35:08.756675",
+  "generatedAt": "2026-06-28T13:03:41.004168",
   "latestSnapshotDate": "2026-06-22",
   "cards": [
     {
@@ -7,7 +7,7 @@
       "title": "Top selling games",
       "game": "MECCHA CHAMELEON",
       "platformLabel": "Steam",
-      "currentMetric": "203,914 players",
+      "currentMetric": "189,674 players",
       "delta": "n/a",
       "url": "https://store.steampowered.com/app/4704690/"
     },
@@ -519,8 +519,8 @@
       "rank": 1,
       "url": "https://store.steampowered.com/app/4704690/",
       "gameId": "4704690",
-      "currentMetric": "203,914 players",
-      "currentMetricValue": 203914.0,
+      "currentMetric": "189,674 players",
+      "currentMetricValue": 189674.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -535,8 +535,8 @@
       "rank": 2,
       "url": "https://store.steampowered.com/app/730/",
       "gameId": "730",
-      "currentMetric": "1,182,224 players",
-      "currentMetricValue": 1182224.0,
+      "currentMetric": "1,135,365 players",
+      "currentMetricValue": 1135365.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc1",
       "deltaValue": -1.0,
@@ -551,8 +551,8 @@
       "rank": 3,
       "url": "https://store.steampowered.com/app/2767030/",
       "gameId": "2767030",
-      "currentMetric": "74,102 players",
-      "currentMetricValue": 74102.0,
+      "currentMetric": "78,150 players",
+      "currentMetricValue": 78150.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -583,8 +583,8 @@
       "rank": 5,
       "url": "https://store.steampowered.com/app/381210/",
       "gameId": "381210",
-      "currentMetric": "117,950 players",
-      "currentMetricValue": 117950.0,
+      "currentMetric": "118,254 players",
+      "currentMetricValue": 118254.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -599,8 +599,8 @@
       "rank": 6,
       "url": "https://store.steampowered.com/app/230410/",
       "gameId": "230410",
-      "currentMetric": "75,964 players",
-      "currentMetricValue": 75964.0,
+      "currentMetric": "74,230 players",
+      "currentMetricValue": 74230.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -631,8 +631,8 @@
       "rank": 8,
       "url": "https://store.steampowered.com/app/1091500/",
       "gameId": "1091500",
-      "currentMetric": "74,830 players",
-      "currentMetricValue": 74830.0,
+      "currentMetric": "70,956 players",
+      "currentMetricValue": 70956.0,
       "metricLabel": "players",
       "delta": "n/a",
       "deltaValue": null,
@@ -647,8 +647,8 @@
       "rank": 9,
       "url": "https://store.steampowered.com/app/2694490/",
       "gameId": "2694490",
-      "currentMetric": "165,450 players",
-      "currentMetricValue": 165450.0,
+      "currentMetric": "165,242 players",
+      "currentMetricValue": 165242.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc4",
       "deltaValue": -4.0,
@@ -663,8 +663,8 @@
       "rank": 10,
       "url": "https://store.steampowered.com/app/2483190/",
       "gameId": "2483190",
-      "currentMetric": "56,488 players",
-      "currentMetricValue": 56488.0,
+      "currentMetric": "53,924 players",
+      "currentMetricValue": 53924.0,
       "metricLabel": "players",
       "delta": "Rank \u25bc7",
       "deltaValue": -7.0,
@@ -2703,7 +2703,7 @@
       {
         "date": "2026-06-22",
         "rank": 1,
-        "metric": 203914.0,
+        "metric": 189674.0,
         "metricLabel": "players",
         "isNew": true
       }
@@ -2803,7 +2803,7 @@
       {
         "date": "2026-06-22",
         "rank": 2,
-        "metric": 1182224.0,
+        "metric": 1135365.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2889,7 +2889,7 @@
       {
         "date": "2026-06-22",
         "rank": 3,
-        "metric": 74102.0,
+        "metric": 78150.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2928,7 +2928,7 @@
       {
         "date": "2026-06-22",
         "rank": 5,
-        "metric": 117950.0,
+        "metric": 118254.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -2979,7 +2979,7 @@
       {
         "date": "2026-06-22",
         "rank": 6,
-        "metric": 75964.0,
+        "metric": 74230.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3011,7 +3011,7 @@
       {
         "date": "2026-06-22",
         "rank": 8,
-        "metric": 74830.0,
+        "metric": 70956.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3034,7 +3034,7 @@
       {
         "date": "2026-06-22",
         "rank": 9,
-        "metric": 165450.0,
+        "metric": 165242.0,
         "metricLabel": "players",
         "isNew": false
       }
@@ -3092,7 +3092,7 @@
       {
         "date": "2026-06-22",
         "rank": 10,
-        "metric": 56488.0,
+        "metric": 53924.0,
         "metricLabel": "players",
         "isNew": false
       }
